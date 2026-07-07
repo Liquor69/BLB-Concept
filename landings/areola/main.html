@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLB Academy · Paramedical PMU Mastery Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --blb-dark:    #3B2314;
+    --blb-mocha:   #6B3F28;
+    --blb-warm:    #9C6B4A;
+    --blb-accent:  #C4956A;
+    --blb-light:   #F5EFE8;
+    --blb-cream:   #FDFAF6;
+    --blb-rose:    #8B4A52;
+    --blb-rose-mid:#A05868;
+    --blb-tag:     #C4956A;
+    --text-dark:   #2C1810;
+    --text-mid:    #5A3A2A;
+    --text-soft:   #7A5A48;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F0E8DF;
+    color: var(--text-dark);
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+
+  /* ─── COVER ─────────────────────────────────────────────── */
+  .cover {
+    background: linear-gradient(160deg, var(--blb-dark) 0%, var(--blb-mocha) 60%, var(--blb-accent) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(196,149,106,0.15);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: 40px; left: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .cover-logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .cover-sub {
+    color: var(--blb-accent);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .cover-hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--blb-accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .cover-title em { color: var(--blb-accent); font-style: italic; }
+  .cover-desc {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .cover-badge {
+    display: inline-block;
+    border: 1px solid rgba(196,149,106,0.6);
+    border-radius: 20px;
+    padding: 8px 20px;
+    color: var(--blb-accent);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+  }
+  .cover-author {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .cover-author strong { color: rgba(255,255,255,0.9); display: block; }
+  .cover-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: rgba(255,255,255,0.15);
+    font-weight: 700;
+  }
+
+  /* ─── INTRO ─────────────────────────────────────────────── */
+  .intro-section {
+    background: var(--blb-dark);
+    padding: 40px 28px;
+    color: #fff;
+  }
+  .intro-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .intro-section p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 12px;
+  }
+  .intro-section strong { color: var(--blb-accent); }
+
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .market-bubble {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(196,149,106,0.3);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .market-bubble .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blb-accent);
+  }
+  .market-bubble .label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+  .market-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(196,149,106,0.6);
+    font-size: 20px;
+    padding-top: 8px;
+  }
+
+  .share-row {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .share-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+  }
+  .share-pct {
+    background: rgba(196,149,106,0.25);
+    color: var(--blb-accent);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .intro-stats {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .intro-stats li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.6;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    list-style: none;
+    padding-left: 16px;
+    position: relative;
+  }
+  .intro-stats li::before {
+    content: '·';
+    color: var(--blb-accent);
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .intro-stats li:last-child { border-bottom: none; }
+
+  /* ─── SECTION HEADERS ────────────────────────────────────── */
+  .section-header {
+    background: linear-gradient(135deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
+    padding: 36px 28px 28px;
+    color: #fff;
+  }
+  .section-header .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .section-header p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  .pillar-header {
+    background: var(--blb-light);
+    padding: 28px 28px 20px;
+    border-left: 4px solid var(--blb-rose);
+  }
+  .pillar-tag {
+    display: inline-block;
+    background: var(--blb-rose);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .pillar-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--blb-dark);
+    font-weight: 700;
+  }
+  .pillar-header p {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ─── KNOWLEDGE CARDS ───────────────────────────────────── */
+  .card-wrap { padding: 0 0 4px; }
+
+  .topic-title {
+    background: var(--blb-rose-mid);
+    padding: 14px 28px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topic-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+  }
+
+  .card {
+    background: #fff;
+    padding: 20px 28px;
+    border-bottom: 1px solid #EDE5DB;
+  }
+  .card:last-child { border-bottom: none; }
+
+  .card-intro {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .fact-list { list-style: none; }
+  .fact-list li {
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 7px 0 7px 16px;
+    border-bottom: 1px solid #F0E8DF;
+    position: relative;
+  }
+  .fact-list li:last-child { border-bottom: none; }
+  .fact-list li::before {
+    content: '·';
+    color: var(--blb-rose);
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .fact-list li strong { color: var(--blb-rose); }
+
+  .highlight-box {
+    background: var(--blb-rose-mid);
+    border-radius: 10px;
+    margin-top: 16px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .highlight-box .hl-title {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.9;
+  }
+
+  .info-box {
+    background: var(--blb-light);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-mid);
+  }
+  .info-box .ib-title {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blb-rose);
+    margin-bottom: 8px;
+  }
+
+  .skin-type {
+    background: var(--blb-rose-mid);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .skin-detail {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #EDE5DB;
+    font-size: 12px;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  .skin-detail .sk-row {
+    display: flex;
+    margin-bottom: 4px;
+  }
+  .sk-label { color: var(--blb-rose); font-weight: 600; min-width: 90px; }
+
+  /* ─── TIMELINE ───────────────────────────────────────────── */
+  .timeline { margin-top: 8px; }
+  .tl-step {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .tl-step.active  { background: var(--blb-rose-mid); color: #fff; }
+  .tl-step.muted   { background: var(--blb-light); color: var(--text-dark); }
+  .tl-step .tl-head { font-weight: 700; font-size: 11px; letter-spacing: 1px; margin-bottom: 5px; }
+  .tl-step.active .tl-head { opacity: 0.9; }
+  .tl-step.muted .tl-head { color: var(--blb-rose); }
+  .tl-step li { list-style: none; padding-left: 12px; position: relative; }
+  .tl-step li::before { content:'·'; position:absolute; left:0; }
+
+  /* ─── SCAR TABLE ─────────────────────────────────────────── */
+  .scar-block { margin-bottom: 12px; }
+  .scar-type {
+    background: var(--blb-rose-mid);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .scar-body {
+    background: #fff;
+    border: 1px solid #EDE5DB;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 12px 16px;
+  }
+  .scar-body .sr { display:flex; gap:8px; margin-bottom:4px; font-size:12px; }
+  .sr-label { color:var(--blb-rose); font-weight:600; min-width:75px; }
+
+  /* ─── PIGMENT TABLE ──────────────────────────────────────── */
+  .ptable { width:100%; border-collapse:collapse; margin-top:12px; font-size:12px; }
+  .ptable th {
+    background: var(--blb-rose-mid);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .ptable td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #EDE5DB;
+    color: var(--text-dark);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .ptable tr:nth-child(even) td { background: var(--blb-light); }
+  .ptable tr:last-child td { border-bottom: none; }
+  .rec-badge {
+    background: var(--blb-rose);
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+
+  /* ─── COLOUR RECIPE ──────────────────────────────────────── */
+  .recipe-block { margin-bottom: 20px; }
+  .recipe-skin {
+    background: var(--blb-rose-mid);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .recipe-body {
+    background: #fff;
+    border: 1px solid #EDE5DB;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+  .recipe-row { display:flex; gap:8px; margin-bottom:6px; }
+  .recipe-row .rr-l { color:var(--blb-rose); font-weight:600; min-width:70px; }
+  .mix-formula {
+    background: var(--blb-light);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top:8px;
+    font-size:12px;
+  }
+  .mix-formula strong { color: var(--blb-rose); }
+
+  /* ─── NEUTRALISATION TABLE ───────────────────────────────── */
+  .neut-table { width:100%; border-collapse:collapse; margin-top:10px; font-size:12px; }
+  .neut-table th {
+    background: var(--blb-rose-mid);
+    color: #fff;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+  }
+  .neut-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #EDE5DB;
+    color: var(--text-dark);
+  }
+  .neut-table tr:nth-child(even) td { background: var(--blb-light); }
+  .nt-g { color:#3C7A4A; font-weight:600; }
+  .nt-y { color:#BF8A00; font-weight:600; }
+  .nt-v { color:#6A3C80; font-weight:600; }
+
+  /* ─── DEPTH GUIDE ────────────────────────────────────────── */
+  .depth-block {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .depth-block.wrong { background:#FFF0F0; border-left:4px solid #C0392B; }
+  .depth-block.right { background:rgba(60,122,74,0.1); border-left:4px solid #3C7A4A; }
+  .depth-block .db-head { font-weight:700; margin-bottom:6px; font-size:11px; letter-spacing:0.5px; }
+  .depth-block.wrong .db-head { color:#C0392B; }
+  .depth-block.right .db-head { color:#3C7A4A; }
+  .depth-block li { list-style:none; padding-left:12px; position:relative; }
+  .depth-block li::before { content:'·'; position:absolute; left:0; }
+
+  /* ─── BLENDING METHODS ───────────────────────────────────── */
+  .method-block {
+    background: var(--blb-rose-mid);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .method-block .mb-head { font-weight:700; font-size:11px; letter-spacing:1px; margin-bottom:6px; }
+  .method-block li { list-style:none; padding-left:12px; position:relative; opacity:0.9; }
+  .method-block li::before { content:'·'; position:absolute; left:0; }
+
+  /* ─── 3D LAYERS ──────────────────────────────────────────── */
+  .layer-block {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .layer-head {
+    background: var(--blb-rose-mid);
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .layer-body {
+    background: #fff;
+    border: 1px solid #EDE5DB;
+    border-top: none;
+    padding: 12px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .layer-body .lr { display:flex; gap:8px; margin-bottom:4px; }
+  .lr-l { color:var(--blb-rose); font-weight:600; min-width:80px; }
+
+  /* ─── CONSULTATION FLOW ──────────────────────────────────── */
+  .consult-phase {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .cp-head {
+    background: var(--blb-rose-mid);
+    padding: 10px 16px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .cp-body {
+    background: #fff;
+    border: 1px solid #EDE5DB;
+    border-top: none;
+    padding: 12px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .cp-body li { list-style:none; padding-left:14px; position:relative; margin-bottom:5px; }
+  .cp-body li::before { content:'·'; color:var(--blb-rose); position:absolute; left:0; font-size:16px; line-height:1.3; }
+
+  /* ─── RED FLAGS ──────────────────────────────────────────── */
+  .red-flag {
+    background:#FFF5F5;
+    border-left:4px solid #B03030;
+    border-radius:0 8px 8px 0;
+    padding:12px 16px;
+    margin-bottom:8px;
+    font-size:12px;
+    line-height:1.6;
+    color:var(--text-dark);
+  }
+  .red-flag .rf-head { color:#B03030; font-weight:700; margin-bottom:4px; font-size:11px; }
+
+  /* ─── PRICING TABLE ──────────────────────────────────────── */
+  .price-block {
+    border-radius:8px;
+    margin-bottom:10px;
+    overflow:hidden;
+  }
+  .pb-head {
+    background: var(--blb-rose-mid);
+    padding:10px 16px;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .pb-body {
+    background:#fff;
+    border:1px solid #EDE5DB;
+    border-top:none;
+    padding:12px 16px;
+    font-size:12px;
+  }
+  .pb-body .pr { display:flex; gap:8px; margin-bottom:4px; }
+  .pr-l { color:var(--blb-rose); font-weight:600; min-width:100px; }
+
+  .comparison-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:12px;
+  }
+  .comp-card {
+    border-radius:8px;
+    padding:14px 12px;
+    text-align:center;
+    font-size:12px;
+  }
+  .comp-card.basic { background:rgba(160,88,104,0.1); border:1px solid rgba(160,88,104,0.3); }
+  .comp-card.premium { background:var(--blb-rose-mid); color:#fff; }
+  .comp-card .cc-type { font-size:10px; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; opacity:0.8; }
+  .comp-card .cc-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; }
+  .comp-card .cc-unit { font-size:10px; opacity:0.7; }
+
+  /* ─── PHASE ROADMAP ──────────────────────────────────────── */
+  .phase-block {
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:12px;
+  }
+  .phase-head {
+    background: var(--blb-dark);
+    padding:10px 16px;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+  .phase-body {
+    background:#fff;
+    border:1px solid #EDE5DB;
+    border-top:none;
+    padding:12px 16px;
+    font-size:12px;
+    line-height:1.7;
+  }
+  .phase-body li { list-style:none; padding-left:14px; position:relative; margin-bottom:4px; }
+  .phase-body li::before { content:'·'; color:var(--blb-accent); position:absolute; left:0; font-size:16px; line-height:1.3; }
+  .phase-earn {
+    background:var(--blb-light);
+    border-radius:6px;
+    padding:8px 12px;
+    margin-top:8px;
+    font-weight:600;
+    color:var(--blb-rose);
+    font-size:12px;
+  }
+
+  /* ─── FOLLOW-UP SCHEDULE ─────────────────────────────────── */
+  .followup-item {
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #EDE5DB;
+    font-size:12px;
+    line-height:1.5;
+  }
+  .followup-item:last-child { border-bottom:none; }
+  .fu-day {
+    background:var(--blb-rose-mid);
+    color:#fff;
+    border-radius:6px;
+    padding:4px 10px;
+    font-size:11px;
+    font-weight:600;
+    white-space:nowrap;
+    height:fit-content;
+  }
+  .fu-text { color:var(--text-dark); }
+
+  /* ─── COMPLICATION TABLE ─────────────────────────────────── */
+  .comp-issue {
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:12px;
+  }
+  .ci-head {
+    background:var(--blb-rose-mid);
+    padding:10px 16px;
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+  }
+  .ci-body {
+    background:#fff;
+    border:1px solid #EDE5DB;
+    border-top:none;
+    padding:12px 16px;
+    font-size:12px;
+    line-height:1.6;
+  }
+  .ci-body .ci-r { display:flex; gap:8px; margin-bottom:5px; }
+  .cir-l { color:var(--blb-rose); font-weight:600; min-width:85px; }
+
+  /* ─── FOOTER ─────────────────────────────────────────────── */
+  .guide-footer {
+    background: var(--blb-dark);
+    padding: 40px 28px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .guide-footer h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    color:#fff;
+    margin-bottom:12px;
+    font-weight:600;
+  }
+  .guide-footer a {
+    color: var(--blb-accent);
+    text-decoration: none;
+  }
+  .footer-links {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin:20px 0;
+  }
+  .footer-link-item {
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(196,149,106,0.2);
+    border-radius:8px;
+    padding:10px 16px;
+    color:rgba(255,255,255,0.85);
+    font-size:12px;
+  }
+  .copyright {
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    font-size:11px;
+    color:rgba(255,255,255,0.4);
+    letter-spacing:0.5px;
+  }
+
+  /* ─── UTILITY ────────────────────────────────────────────── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blb-dark), var(--blb-rose), var(--blb-accent));
+  }
+  .spacer { height: 4px; background: var(--blb-light); }
+
+  /* ─── FLOATING CONTACT BUBBLES ───────────────────────────── */
+  .fab-container {
+    position: fixed;
+    bottom: 24px;
+    right: max(20px, calc((100vw - 480px) / 2 + 20px));
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .fab-btn {
+    border: none;
+    cursor: pointer;
+    padding: 14px 22px;
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(44,24,16,0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .fab-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(44,24,16,0.4); }
+  .fab-btn.question { background: var(--blb-dark); color: #fff; }
+  .fab-btn.claim { background: var(--blb-accent); color: var(--blb-dark); }
+
+  /* ─── CONTACT MODAL ──────────────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44,24,16,0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: var(--blb-cream);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 380px;
+    padding: 32px 26px 26px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--text-soft);
+    cursor: pointer;
+  }
+  .modal-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blb-dark);
+    margin-bottom: 6px;
+  }
+  .modal-sub {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .modal-field { margin-bottom: 14px; }
+  .modal-field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--blb-rose);
+    margin-bottom: 6px;
+  }
+  .modal-field input,
+  .modal-field textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #EDE5DB;
+    border-radius: 8px;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-dark);
+  }
+  .modal-field input:focus,
+  .modal-field textarea:focus {
+    outline: none;
+    border-color: var(--blb-rose);
+  }
+  .modal-field textarea { resize: vertical; min-height: 70px; }
+  .modal-submit {
+    width: 100%;
+    margin-top: 6px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--blb-rose-mid);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .modal-submit:hover { background: var(--blb-rose); }
+
+  /* ─── SUCCESS MODAL ──────────────────────────────────────── */
+  .success-box { text-align: center; padding-top: 32px; }
+  .success-box.slide-in {
+    animation: successSlideIn 0.39s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .success-box.slide-out {
+    animation: successSlideOut 0.31s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+  }
+  @keyframes successSlideIn {
+    from { transform: translateY(140%); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes successSlideOut {
+    from { transform: translateY(0); opacity: 1; }
+    to   { transform: translateY(140%); opacity: 0; }
+  }
+  .success-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    outline: none;
+    border-radius: 8px;
+    padding: 6px 8px;
+  }
+  .success-text:focus { background: var(--blb-light); }
+  .success-check {
+    width: 72px;
+    height: 72px;
+    margin: 26px auto 4px;
+  }
+  .success-check-circle {
+    stroke: #3C7A4A;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 155;
+    stroke-dashoffset: 155;
+    animation: successCircle 0.6s ease-out forwards;
+  }
+  .success-check-mark {
+    stroke: #3C7A4A;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: successMark 0.35s ease-out 0.55s forwards;
+  }
+  @keyframes successCircle { to { stroke-dashoffset: 0; } }
+  @keyframes successMark { to { stroke-dashoffset: 0; } }
+</style>
+</head>
+<body>
+  <!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div>
+    <div class="cover-logo">BLB</div>
+    <div class="cover-sub">Brow &amp; Lash Buro · Academy</div>
+  </div>
+  <div class="cover-hero">
+    <div class="cover-eyebrow">Professional Certification Course</div>
+    <div class="cover-title">
+      Master of <em>Realistic Areola</em><br>&amp; Skin Defect Camouflage
+    </div>
+    <div class="cover-desc">
+      A professional reference guide for paramedical PMU practitioners.<br>
+      BLB Concept · International Curriculum
+    </div>
+    <div class="cover-badge">BLB Concept · Cascais · Portugal</div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-author">
+      <strong>BLB Academy</strong>
+      browlash.eu · blb.academy.pt@gmail.com
+    </div>
+    <div class="cover-year">2025</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ INTRODUCTION ══════════════ -->
+<div class="intro-section">
+  <h2>Introduction</h2>
+  <p>Permanent makeup is far more than a cosmetic procedure. In the paramedical field, it is an act of <strong>restoration</strong> — giving back confidence to those who have survived mastectomy, burns, trauma, or were born with congenital skin differences.</p>
+  <p>The global paramedical tattooing market is growing rapidly:</p>
+
+  <div class="market-grid">
+    <div class="market-bubble">
+      <div class="amount">$500M</div>
+      <div class="label">Market 2025</div>
+    </div>
+    <div class="market-bubble">
+      <div class="amount">$800M</div>
+      <div class="label">Forecast 2033</div>
+    </div>
+  </div>
+
+  <div class="share-row">
+    <div class="share-item"><span class="share-pct">30%</span> Realistic areola</div>
+    <div class="share-item"><span class="share-pct">30%</span> Skin camouflage</div>
+  </div>
+
+  <div class="intro-stats">
+    <li>82% of clients seek specialists committed to precision and natural results</li>
+    <li>Masters with deep specialisation earn 40–60% more per procedure</li>
+    <li>67% of income comes from referrals and returning clients</li>
+    <li>Market growth rate: 15–20% annually (vs. 5% in other PMU niches)</li>
+  </div>
+
+  <p style="margin-top:20px;">This guide is not a substitute for hands-on training. It is a <strong>practitioner's reference</strong> — a tool for developing and deepening expertise in a specialisation that changes lives.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION I ══════════════ -->
+<div class="section-header">
+  <div class="eyebrow">Section I</div>
+  <h2>Five Pillars of Mastery</h2>
+  <p>Expertise in paramedical PMU rests on five interconnected foundations. Every world-class practitioner excels in all five — technical skill alone is never enough.</p>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ── PILLAR 1 ── -->
+<div class="pillar-header">
+  <div class="pillar-tag">Pillar 1</div>
+  <h3>Anatomy &amp; Physiology</h3>
+  <p>Mastery begins with understanding what lies beneath the skin.</p>
+</div>
+
+<div class="card-wrap">
+  <!-- TOPIC 1 -->
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 1 · The Areolar Complex</div>
+  <div class="card">
+    <p class="card-intro">What every practitioner must know:</p>
+    <ul class="fact-list">
+      <li><strong>Dermal layers:</strong> Pigment is deposited in the papillary dermis at 1.5–2.0 mm depth. Too shallow fades in months; too deep causes colour shift and scarring.</li>
+      <li><strong>Areolar structure:</strong> Central zone + peripheral border + pigmented ring. Each zone may require different needle configuration and pigment density.</li>
+      <li><strong>Natural variation:</strong> Size ranges from 15–50 mm. Shape varies from round to oval. Asymmetry of 20–30% between sides is anatomically normal.</li>
+      <li><strong>Age-related changes:</strong> Post-menopause pigmentation fades naturally. Post-pregnancy stretch marks alter the surrounding tissue.</li>
+      <li><strong>Aesthetic standard:</strong> A diameter of 3.8–5 cm is widely considered the optimal aesthetic proportion in contemporary practice.</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">Action Step</div>
+      Build a personal reference library of 50+ natural areola photographs across diverse skin types. Study real anatomy, not other artists' work. Train your eye to recognise natural variation as normal — not as a flaw to correct.
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 2 · Fitzpatrick Scale — Practical Application</div>
+  <div class="card">
+    <p class="card-intro">Skin type classification (Fitzpatrick) — practical approach for areola work:</p>
+
+    <div class="skin-type">TYPE I–II (Fair Skin)</div>
+    <div class="skin-detail">
+      <div class="sk-row"><span class="sk-label">Particularity:</span><span>Requires light, warm-toned pigments. Cool pinks and stark reds appear unnatural.</span></div>
+      <div class="sk-row"><span class="sk-label">Challenge:</span><span>Overly bright pigments heal visibly artificial. Blend into skin undertone first.</span></div>
+    </div>
+
+    <div class="skin-type">TYPE III–IV (Medium/Olive Skin)</div>
+    <div class="skin-detail">
+      <div class="sk-row"><span class="sk-label">Particularity:</span><span>Ideal teaching cases — results are highly visible and easier to assess objectively.</span></div>
+      <div class="sk-row"><span class="sk-label">Challenge:</span><span>Results are easier to control; focus on gradient and natural asymmetry.</span></div>
+    </div>
+
+    <div class="skin-type">TYPE V–VI (Dark Skin)</div>
+    <div class="skin-detail">
+      <div class="sk-row"><span class="sk-label">Particularity:</span><span>Requires saturated, deep pigments. Undertones are complex and must be matched precisely.</span></div>
+      <div class="sk-row"><span class="sk-label">Challenge:</span><span>Selecting the correct shade is the primary technical difficulty. Always patch-test first.</span></div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="hl-title">Key Point</div>
+      Oily skin requires 20–30% deeper pigment implantation. Dry skin accepts pigment readily but demands a lighter hand. Combination skin needs zone-by-zone assessment with a hybrid approach. Determine skin type before every procedure.
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 3 · Full Healing Cycle</div>
+  <div class="card">
+    <p class="card-intro">Timeline every practitioner must know by heart:</p>
+    <div class="timeline">
+      <div class="tl-step active">
+        <div class="tl-head">DAYS 0–3 / INFLAMMATION</div>
+        <li>Pigment appears 25% darker than it will heal</li>
+        <li>Mild swelling and minor bleeding are normal</li>
+        <li>Client concern: "it's too dark" — reassure proactively</li>
+      </div>
+      <div class="tl-step muted">
+        <div class="tl-head">DAYS 3–7 / CRUST FORMATION</div>
+        <li>Scabbing begins to develop</li>
+        <li>Mild itching is normal and expected</li>
+        <li>Key care rule: do not touch, do not wet, no exercise</li>
+      </div>
+      <div class="tl-step active">
+        <div class="tl-head">DAYS 7–21 / CRUST SHEDDING</div>
+        <li>Crust falls away naturally — do not force</li>
+        <li>Pigment lightens by 10–15% as healing progresses</li>
+        <li>Client may feel "it's all gone" — this is normal</li>
+      </div>
+      <div class="tl-step muted">
+        <div class="tl-head">DAYS 21–42 / COLOUR STABILISATION</div>
+        <li>Final colour begins to emerge through the skin</li>
+        <li>Additional 5% lightening may occur</li>
+        <li>This is the optimal moment to assess the result</li>
+      </div>
+      <div class="tl-step active">
+        <div class="tl-head">DAY 42+ / FINAL PICTURE</div>
+        <li>Result is stable and fully healed</li>
+        <li>Pigment is ready for long-term assessment</li>
+        <li>Only NOW can you determine whether a correction is needed</li>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-title">Critical Rule</div>
+      NEVER schedule a correction before 6–8 weeks.
+      The client is observing the healing process, not the final result. The most common beginner error is intervening too early on a result that has not yet healed. Educate every client on this timeline before the procedure.
+    </div>
+  </div>
+
+  <!-- TOPIC 4 -->
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 4 · Scar Tissue — Diagnosis &amp; Approach</div>
+  <div class="card">
+    <p class="card-intro">Scar typology — brief practical classification:</p>
+
+    <div class="scar-block">
+      <div class="scar-type">NORMOTROPHIC (Flat, slightly depigmented)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90% visual improvement</span></div>
+        <div class="sr"><span class="sr-label">Approach:</span><span>Colour equalisation + soft edge darkening</span></div>
+        <div class="sr"><span class="sr-label">Complexity:</span><span>Low — ideal for building portfolio</span></div>
+      </div>
+    </div>
+
+    <div class="scar-block">
+      <div class="scar-type">HYPERTROPHIC (Raised, reddish-brown)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75% visual improvement</span></div>
+        <div class="sr"><span class="sr-label">Approach:</span><span>Optical depth illusion — dark edges, lighter centre</span></div>
+        <div class="sr"><span class="sr-label">Complexity:</span><span>Medium — requires colour theory mastery</span></div>
+      </div>
+    </div>
+
+    <div class="scar-block">
+      <div class="scar-type">KELOID (Very raised, extends beyond wound margin)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Approach:</span><span>Refer to dermatologist or surgeon first</span></div>
+        <div class="sr"><span class="sr-label">Note:</span><span>Keloids are NOT suitable for tattooing. Recommend medical treatment before any PMU intervention.</span></div>
+        <div class="sr"><span class="sr-label">Complexity:</span><span>High — do not proceed without medical clearance</span></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-title">Action Step</div>
+      Use a dermatoscope (if available) to assess scar structure. Photograph from a 45° side angle to determine relief depth. Always give realistic expectations: "I can reduce visibility by 50–70%, but physical elevation requires a surgeon or laser treatment."
+    </div>
+  </div>
+
+  <!-- TOPIC 5 -->
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 5 · Natural Pigmentation &amp; Asymmetry</div>
+  <div class="card">
+    <p class="card-intro">The fundamental discovery every practitioner must internalise:</p>
+    <ul class="fact-list">
+      <li>Natural areolae are <strong>NEVER</strong> perfectly symmetrical.</li>
+      <li>Left vs right: 20–30% variation in size, shape, and colour is anatomically normal.</li>
+      <li>The centre is typically lighter; the periphery naturally darker — this creates depth.</li>
+      <li>Montgomery glands are distributed randomly, not uniformly.</li>
+      <li>Different ethnicities present different natural pigmentation patterns.</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">Post-surgical Context</div>
+      Post-mastectomy: surrounding skin is often 5–15% paler than the rest. After reconstruction: scarring creates colour variations. After augmentation: skin tension affects how pigment heals. Photograph the natural areola BEFORE the procedure in multiple lighting conditions.
+    </div>
+    <div class="info-box">
+      <div class="ib-title">Action Step</div>
+      Measure diameter and shade (use Pantone skin tone references). Never aim for perfect symmetry — aim for <em>natural asymmetry</em>. Document everything in writing before beginning.
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ── PILLAR 2 ── -->
+<div class="pillar-header">
+  <div class="pillar-tag">Pillar 2</div>
+  <h3>Colour Theory &amp; Pigment Science</h3>
+  <p>Colour science is what separates masters from beginners.</p>
+</div>
+  <div class="card-wrap">
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 6 · Colour Theory Fundamentals</div>
+  <div class="card">
+    <p class="card-intro">The Itten colour wheel — applied to areola micropigmentation:</p>
+    <p class="card-intro"><strong>The colour of an areola is primarily the colour of melanin.</strong> The darkest areola in tone matches the darkest natural mole on the body. Areolae always contain a significant yellow component; the soft pink quality comes from superficial vascularity.</p>
+    <ul class="fact-list">
+      <li><strong>Warm tones (red, orange, yellow):</strong> Use for warm-toned skin undertones</li>
+      <li><strong>Cool tones (rose, violet, blue):</strong> Use for cool-toned skin undertones</li>
+      <li><strong>Neutral mixes:</strong> For universal or uncertain undertone application</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">The Master Rule</div>
+      Match colour to the client's existing skin tone as closely as possible — not lighter, not darker. The closest colour match minimises the risk of an unnatural result. Remember: pigment under the skin always appears 30–40% darker than on the palette or skin-pad.
+    </div>
+    <div class="info-box">
+      <div class="ib-title">Action Step</div>
+      Create a personal colour reference book. Apply 5–6 base pigments to a skin-pad and leave for one week. Photograph the healed result in consistent lighting. These become your reference standards for all future procedures.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 7 · Pigment Selection by Skin Type</div>
+  <div class="card">
+    <div class="recipe-block">
+      <div class="recipe-skin">FAIR SKIN (Fitzpatrick I–II)</div>
+      <div class="recipe-body">
+        <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Rose · Peach · Warm beige</span></div>
+        <div class="recipe-row"><span class="rr-l">Common error:</span><span>Using brown tones — heals unnaturally dark and muddy</span></div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> 70% rose + 20% peach + 10% yellow</div>
+      </div>
+    </div>
+    <div class="recipe-block">
+      <div class="recipe-skin">MEDIUM / OLIVE SKIN (III–IV)</div>
+      <div class="recipe-body">
+        <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Brown · Reddish · Olive</span></div>
+        <div class="recipe-row"><span class="rr-l">Common error:</span><span>Single brown only — result looks flat and uniform</span></div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> 50% brown + 30% red + 20% yellow</div>
+      </div>
+    </div>
+    <div class="recipe-block">
+      <div class="recipe-skin">DARK SKIN (V–VI)</div>
+      <div class="recipe-body">
+        <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Dark brown · Reddish brown · Burgundy</span></div>
+        <div class="recipe-row"><span class="rr-l">Common error:</span><span>Pure red — heals unnaturally bright</span></div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> 60% dark brown + 25% red + 15% warm tone</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="ib-title">Action Step</div>
+      Invest 20 hours in pigment blending practice. Create 20+ combinations. Test each on a skin-pad. Document results with photographs under consistent lighting. By the end of this exercise, you will think in colour like a colourist, not a technician.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 8 · Scar Colour Neutralisation</div>
+  <div class="card">
+    <p class="card-intro"><strong>2025 Technique: Complementary Neutralisation</strong><br>
+    If a scar carries an unwanted undertone, use the complementary colour from the opposite side of the wheel:</p>
+    <table class="neut-table">
+      <tr><th>Scar Colour</th><th>Neutraliser</th><th>Then Apply</th></tr>
+      <tr><td>Red/pink</td><td class="nt-g">Green pigment (primer)</td><td>Skin tone</td></tr>
+      <tr><td>Violet/blue</td><td class="nt-y">Yellow pigment</td><td>Skin tone</td></tr>
+      <tr><td>Yellow/orange</td><td class="nt-v">Violet pigment</td><td>Skin tone</td></tr>
+    </table>
+    <div class="highlight-box" style="margin-top:14px;">
+      This technique requires precision and patience. The result makes the scar 60–80% less visible. Test on 5–10 existing cases first. Mastering this becomes your superpower for the most complex cases.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 9 · Pigment Longevity</div>
+  <div class="card">
+    <table class="ptable">
+      <tr><th>Type</th><th>Iron Oxide</th><th>Hybrid</th></tr>
+      <tr><td>Longevity</td><td>6–12 months</td><td>2–4 years</td></tr>
+      <tr><td>Stability</td><td>Excellent</td><td>Excellent</td></tr>
+      <tr><td>Cost</td><td>Mid-range</td><td>Premium</td></tr>
+      <tr><td>Recommendation</td><td><span class="rec-badge">Gold Standard</span></td><td>Premium choice</td></tr>
+    </table>
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="hl-title">Critical Rule</div>
+      Use ONLY certified pigments (CE / FDA or equivalent). Low-quality pigments may cause allergic reactions, colour migration, or toxicity. Choose 1–2 trusted manufacturers and remain consistent — different batches produce different results. Always document pigment brand, lot number, and healed result per client.
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ── PILLAR 3 ── -->
+<div class="pillar-header">
+  <div class="pillar-tag">Pillar 3</div>
+  <h3>Technical Mastery</h3>
+  <p>Technique is the practitioner's muscle memory — built only through repetition.</p>
+</div>
+
+<div class="card-wrap">
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 10 · Equipment Selection</div>
+  <div class="card">
+    <ul class="fact-list">
+      <li><strong>Rotary machines (eccentric 2.5–3.5 mm):</strong> Optimal for areola and camouflage work. Soft, predictable impact — allows fine depth and trauma control.</li>
+      <li><strong>Induction machines:</strong> Not recommended. Deliver a harder impulse, break down skin texture, and significantly increase healing trauma.</li>
+      <li><strong>Starting recommendation:</strong> Begin with a 2.5 mm eccentric. Once technique is stable, add a 3.5–3.7 mm throw for denser skin and scar tissue.</li>
+      <li><strong>If corded, use a foot pedal:</strong> Both hands remain free for skin stabilisation and angle control — critical for precision on sensitive anatomical areas.</li>
+    </ul>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 11 · Depth of Pigmentation — The Master Skill</div>
+  <div class="card">
+    <div class="depth-block wrong">
+      <div class="db-head">TOO SHALLOW (0.5–1.0 mm)</div>
+      <li>Pigment washes out within 3–6 months</li>
+      <li>Client paid for a permanent result — receives none</li>
+      <li>Result: complaint, reputation risk, rework</li>
+    </div>
+    <div class="depth-block wrong" style="background:#FFF5F0; border-left-color:#BF6020;">
+      <div class="db-head" style="color:#BF6020;">TOO DEEP (&gt;2.5 mm)</div>
+      <li>Tyndall effect — blue/grey undertone that cannot be corrected with pigment alone</li>
+      <li>Scarring risk — requires laser removal before rework</li>
+      <li>Most serious technical error in paramedical PMU</li>
+    </div>
+    <div class="depth-block right">
+      <div class="db-head">OPTIMAL (1.5–2.0 mm — papillary dermis)</div>
+      <li>Result: 2–4 years of stable, natural-looking colour</li>
+      <li>Correct capillary bleed: light, every 10–15 seconds</li>
+      <li>Signs of correct depth: skin takes pigment evenly, minimal rebound</li>
+    </div>
+    <div class="info-box" style="margin-top:12px;">
+      <div class="ib-title">Practice Protocol</div>
+      Use layered skin-pads with depth markers. Practise 100+ hours until consistent 1.5–2.0 mm depth becomes automatic. Film your own technique and review. Have an experienced mentor check your depth on your first 20 live clients.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 12 · Blending Techniques for Natural Results</div>
+  <div class="card">
+    <div class="method-block">
+      <div class="mb-head">METHOD 1 · FEATHERING (60% of procedure time)</div>
+      <li>Gradually reduce pigment density toward the edges</li>
+      <li>Decrease passes: 5 in centre → 3 mid-zone → 1 at edge</li>
+      <li>Result: smooth gradient, no visible hard border</li>
+    </div>
+    <div class="method-block" style="background:rgba(160,88,104,0.7);">
+      <div class="mb-head">METHOD 2 · STIPPLING/DOTTING (25% of procedure time)</div>
+      <li>Isolated points using 3RL or 5RS needle</li>
+      <li>Mimics Montgomery glands — creates organic texture</li>
+      <li>5–15 points per areola, placed asymmetrically</li>
+    </div>
+    <div class="method-block" style="background:rgba(107,63,40,0.8);">
+      <div class="mb-head">METHOD 3 · SPIRAL TECHNIQUE (15% of procedure time)</div>
+      <li>Spiral motion from centre outward</li>
+      <li>Produces 10% more uniform gradient than linear passes</li>
+      <li>Requires 20+ additional minutes — the result justifies it</li>
+    </div>
+    <div class="info-box" style="margin-top:8px;">
+      <div class="ib-title">Integration</div>
+      Combine all three: <strong>60% feathering + 25% stippling + 15% spiral = professional result.</strong> Practise each method separately on 50+ skin-pads before combining.
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ── PILLAR 4 ── -->
+<div class="pillar-header">
+  <div class="pillar-tag">Pillar 4</div>
+  <h3>Client Psychology &amp; Business</h3>
+  <p>Positioning and communication are as essential as needle technique.</p>
+</div>
+
+<div class="card-wrap">
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 13 · Consultation &amp; Expectation Management</div>
+  <div class="card">
+    <div class="info-box">
+      <div class="ib-title">Consultation Duration</div>
+      Minimum 45–60 minutes. This is not wasted time — it is an investment in the correct result, a lower complication rate, and a stronger referral relationship.
+    </div>
+
+    <div class="consult-phase">
+      <div class="cp-head">PHASE 1 — LISTENING (15 min)</div>
+      <div class="cp-body">
+        <li>Why are they here? (Oncology, reconstruction, cosmetic desire, congenital)</li>
+        <li>What is their emotional history with the procedure?</li>
+        <li>Is there anxiety, PTSD-adjacent responses to clinical environments?</li>
+        <li>What is their specific vision? Listen without interrupting.</li>
+      </div>
+    </div>
+
+    <div class="consult-phase">
+      <div class="cp-head">PHASE 2 — EDUCATION (20 min)</div>
+      <div class="cp-body">
+        <li>Show healed examples — NEVER fresh results</li>
+        <li>Explain why asymmetry is natural and intentional</li>
+        <li>Walk through the full healing timeline step by step</li>
+        <li>Set realistic expectations on corrections (typically 1–2 in year one)</li>
+      </div>
+    </div>
+
+    <div class="consult-phase">
+      <div class="cp-head">PHASE 3 — GOAL DEFINITION (15 min)</div>
+      <div class="cp-body">
+        <li>"What colour feels right to you? Show me."</li>
+        <li>"What diameter? Here is a compass — let's measure together."</li>
+        <li>"Do you want a 2D or 3D effect?"</li>
+        <li>Document all decisions in writing. Both parties sign.</li>
+      </div>
+    </div>
+
+    <p style="font-size:12px; color:var(--text-mid); padding:0 4px; margin-top:12px; line-height:1.6;">
+      <strong style="color:var(--blb-rose);">Red flags — when to decline:</strong>
+    </p>
+    <div class="red-flag"><div class="rf-head">Client demands perfect symmetry</div>Explain the anatomy. If they remain insistent after education → decline respectfully.</div>
+    <div class="red-flag"><div class="rf-head">Signs of body dysmorphia</div>Gently recommend a psychological consultation before any cosmetic procedure.</div>
+    <div class="red-flag"><div class="rf-head">External pressure (partner/family)</div>"This is your body. The decision must be yours alone." Redirect the conversation back to the client's own wishes, away from outside pressure.</div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 14 · Informed Consent &amp; Documentation</div>
+  <div class="card">
+    <p class="card-intro"><strong>Legal protection begins BEFORE the procedure.</strong></p>
+    <ul class="fact-list">
+      <li><strong>Procedure description:</strong> What is being done and how long it takes</li>
+      <li><strong>Risks &amp; complications:</strong> Infection 0.5%, allergy, migration, asymmetry</li>
+      <li><strong>Correction timeline:</strong> When results can be assessed; when correction is appropriate</li>
+      <li><strong>Aftercare:</strong> Detailed written instructions given to client</li>
+      <li><strong>Limitation of guarantee:</strong> Clear statement of what outcomes can and cannot be guaranteed</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">Photography Protocol</div>
+      BEFORE: Full frontal, 45° both sides, close-up of each areola, natural and artificial lighting.
+      DURING: Contour stage, mid-procedure, immediately after.
+      HEALING: Day 1, Week 1, Week 6 (result assessment), Month 3, Month 6.
+      Store minimum 7 years. Use encrypted cloud + local backup. NEVER publish without written consent.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 15 · Long-term Client Relationships</div>
+  <div class="card">
+    <p class="card-intro">One client who trusts you completely can bring you 10 more through referral.</p>
+    <div class="followup-item"><span class="fu-day">Day 1</span><div class="fu-text">Call/text: "How are you feeling? Any excessive swelling?" Remind: no exercise, no wetting.</div></div>
+    <div class="followup-item"><span class="fu-day">Day 3</span><div class="fu-text">"How is the healing going? Is this normal?" Reassure regarding crust appearance.</div></div>
+    <div class="followup-item"><span class="fu-day">Week 1</span><div class="fu-text">Video call or photo check-in. Assess healing. Provide tailored recommendations.</div></div>
+    <div class="followup-item"><span class="fu-day">Week 6</span><div class="fu-text">Correction consultation. Present result in optimal lighting. Book correction if needed.</div></div>
+    <div class="followup-item"><span class="fu-day">Month 3</span><div class="fu-text">Follow-up contact. Assess long-term satisfaction. Request review and portfolio consent.</div></div>
+    <div class="followup-item"><span class="fu-day">Year 1+</span><div class="fu-text">Annual: "How is your result holding?" Recommend maintenance session in year 2–3.</div></div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 16 · Oncology Clients — Psychological Support</div>
+  <div class="card">
+    <p class="card-intro"><strong>30–40% of realistic areola clients are breast cancer survivors.</strong> For them, this is not a cosmetic procedure. It is the restoration of identity.</p>
+    <ul class="fact-list">
+      <li><strong>Post-surgical depression:</strong> 20–30% of patients experience this. Create a safe, unhurried environment.</li>
+      <li><strong>Body dysmorphia:</strong> Even an excellent result may not feel sufficient due to psychological trauma.</li>
+      <li><strong>PTSD-adjacent responses:</strong> Clinical environments, needles, and physical contact can be triggers.</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">Your Role</div>
+      "We are restoring not only your appearance — we are restoring your confidence."
+      Give the client control: offer pause breaks freely. Validate feelings: "It is completely normal to feel emotional. This has been a significant journey." Provide contacts for support groups and therapists.
+    </div>
+    <div class="info-box">
+      <div class="ib-title">Build Partnerships</div>
+      Connect with oncology centres, breast cancer support groups, and plastic surgeons.
+      Consider offering a compassion discount (20–30%) for post-mastectomy clients — this builds your reputation as a specialist of conscience, not a provider monetising pain.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 17 · Specialisation as a Business Strategy</div>
+  <div class="card">
+    <div class="comparison-grid">
+      <div class="comp-card basic">
+        <div class="cc-type">General PMU</div>
+        <div class="cc-price">€400–700</div>
+        <div class="cc-unit">per procedure</div>
+      </div>
+      <div class="comp-card premium">
+        <div class="cc-type">Areola Specialist</div>
+        <div class="cc-price">€1,000–1,500</div>
+        <div class="cc-unit">per procedure</div>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:14px;">
+      The price difference is not about complexity — it is about positioning and demonstrable expertise.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 18 · Pricing &amp; Financial Model</div>
+  <div class="card">
+    <div class="price-block">
+      <div class="pb-head">PRIMARY AREOLA PROCEDURE</div>
+      <div class="pb-body">
+        <div class="pr"><span class="pr-l">Materials:</span><span>€30–50</span></div>
+        <div class="pr"><span class="pr-l">Your time:</span><span>2.5 hours (consult + procedure + documentation)</span></div>
+        <div class="pr"><span class="pr-l">Overheads:</span><span>€100–150 (rental, insurance, utilities)</span></div>
+        <div class="pr"><span class="pr-l">Profit margin:</span><span>€600–900</span></div>
+        <div class="pr"><span class="pr-l">Suggested price:</span><span><strong>€800–1,200</strong></span></div>
+      </div>
+    </div>
+    <div class="price-block">
+      <div class="pb-head">CORRECTION (Within 3 months)</div>
+      <div class="pb-body">
+        <div class="pr"><span class="pr-l">Time:</span><span>1.5 hours</span></div>
+        <div class="pr"><span class="pr-l">Price:</span><span>40–50% of primary (€320–600)</span></div>
+      </div>
+    </div>
+    <div class="price-block">
+      <div class="pb-head">MAINTENANCE (After 2–3 years)</div>
+      <div class="pb-body">
+        <div class="pr"><span class="pr-l">Time:</span><span>1 hour</span></div>
+        <div class="pr"><span class="pr-l">Price:</span><span>20–30% of primary (€160–360)</span></div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="ib-title">European Pricing Note</div>
+      Base price for a primary realistic areola procedure in the EU starts from €400 and rises with experience and reputation. Do not set ultra-premium prices without an established portfolio. Build your rate by 10–15% annually as your waitlist grows.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 19 · Marketing on a Minimal Budget</div>
+  <div class="card">
+    <ul class="fact-list">
+      <li><strong>Primary channel:</strong> Organic referrals + social media = 70% of clients</li>
+      <li><strong>Instagram/TikTok (free):</strong> Monday: case study (before/after with consent) · Wednesday: educational post · Friday: behind-the-scenes</li>
+      <li><strong>Google Business (free):</strong> Optimise for "realistic areola specialist [city]" — request reviews actively</li>
+      <li><strong>Partnerships (free):</strong> Oncology centres, plastic surgeons, breast cancer support groups</li>
+    </ul>
+    <div class="highlight-box">
+      <div class="hl-title">The Paradox</div>
+      The better your work, the LESS you spend on marketing. Excellence = waiting list = referrals = reputation. Prioritise quality over advertising spend, especially in your first two years.
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ── PILLAR 5 ── -->
+<div class="pillar-header">
+  <div class="pillar-tag">Pillar 5</div>
+  <h3>Special Techniques</h3>
+  <p>Advanced methods that separate premium specialists from trained technicians.</p>
+</div>
+
+<div class="card-wrap">
+<div class="topic-title"><div class="topic-dot"></div>TOPIC 20 · 3D Realistic Areola — Premium Technique</div>
+  <div class="card">
+    <p class="card-intro"><strong>Concept:</strong> Using different colours and depths to create the optical illusion of volume — even on a flat post-surgical breast.</p>
+
+    <div class="layer-block">
+      <div class="layer-head">SESSION 1 · BASE LAYER</div>
+      <div class="layer-body">
+        <div class="lr"><span class="lr-l">Depth:</span><span>1.5 mm</span></div>
+        <div class="lr"><span class="lr-l">Colour:</span><span>Light (rose/peach)</span></div>
+        <div class="lr"><span class="lr-l">Coverage:</span><span>80% of areola diameter</span></div>
+        <div class="lr"><span class="lr-l">Effect:</span><span>Base skin tone</span></div>
+        <div class="lr"><span class="lr-l">Healing:</span><span>6–8 weeks before Session 2</span></div>
+      </div>
+    </div>
+    <div class="layer-block">
+      <div class="layer-head">SESSION 2 · MIDTONE LAYER</div>
+      <div class="layer-body">
+        <div class="lr"><span class="lr-l">Depth:</span><span>1.7–1.8 mm</span></div>
+        <div class="lr"><span class="lr-l">Colour:</span><span>Medium (transitional)</span></div>
+        <div class="lr"><span class="lr-l">Coverage:</span><span>50% — weighted toward centre</span></div>
+        <div class="lr"><span class="lr-l">Effect:</span><span>Depth begins to emerge</span></div>
+        <div class="lr"><span class="lr-l">Healing:</span><span>6–8 weeks before Session 3</span></div>
+      </div>
+    </div>
+    <div class="layer-block">
+      <div class="layer-head">SESSION 3 · SHADOW &amp; CONTOUR LAYER</div>
+      <div class="layer-body">
+        <div class="lr"><span class="lr-l">Depth:</span><span>2.0 mm</span></div>
+        <div class="lr"><span class="lr-l">Colour:</span><span>Dark (contour)</span></div>
+        <div class="lr"><span class="lr-l">Coverage:</span><span>20–30% — periphery and edges</span></div>
+        <div class="lr"><span class="lr-l">Effect:</span><span>Shadow created, final contour defined</span></div>
+        <div class="lr"><span class="lr-l">Final result:</span><span>3D illusion — even on a flat surface</span></div>
+      </div>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="comp-card basic">
+        <div class="cc-type">Single Session</div>
+        <div class="cc-price">€800–1,500</div>
+      </div>
+      <div class="comp-card premium">
+        <div class="cc-type">3D Package</div>
+        <div class="cc-price">€2,800–3,500</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 21 · Montgomery Glands — Realism Detail</div>
+  <div class="card">
+    <p class="card-intro">The secret that makes clients say "it looks exactly like real":</p>
+    <ul class="fact-list">
+      <li><strong>Anatomy:</strong> 4–30 glands per areola (average 12–15). Distributed irregularly, denser toward the periphery. Colour 1–2 shades darker than the base.</li>
+      <li><strong>Technique:</strong> Use 3RL or 5M needle. Isolated points, 0.5–1.5 mm diameter, depth 1.8–2.0 mm. Begin with 30–40% of planned glands, let client guide density.</li>
+      <li><strong>Critical error:</strong> Too many glands = unnatural (resembles acne or papilloma). Less is more.</li>
+      <li><strong>Effect:</strong> Clients often cannot name what makes the result look real — but they see the difference immediately.</li>
+    </ul>
+    <div class="info-box">
+      <div class="ib-title">Practice Investment</div>
+      Requires 50+ hours of skin-pad practice before attempting on live clients. This single technique multiplies result quality tenfold and commands significant premium pricing.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION II ══════════════ -->
+<div class="section-header">
+  <div class="eyebrow">Section II</div>
+  <h2>Skin Defect Camouflage</h2>
+  <p>A complete camouflage specialist is significantly more sought-after than an areola practitioner alone.</p>
+</div>
+
+<div class="card-wrap">
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 22 · Scars &amp; Marks — Classification &amp; Approach</div>
+  <div class="card">
+    <div class="scar-block">
+      <div class="scar-type">NORMOTROPHIC (Flat, slightly depigmented)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90%</span></div>
+        <div class="sr"><span class="sr-label">Technique:</span><span>Colour fill, tone equalisation</span></div>
+        <div class="sr"><span class="sr-label">Time:</span><span>90 minutes</span></div>
+        <div class="sr"><span class="sr-label">Result:</span><span>Nearly invisible — best portfolio cases</span></div>
+      </div>
+    </div>
+    <div class="scar-block">
+      <div class="scar-type">HYPERTROPHIC (Raised, reddish-brown)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75%</span></div>
+        <div class="sr"><span class="sr-label">Technique:</span><span>Optical illusion — dark edges, light centre</span></div>
+        <div class="sr"><span class="sr-label">Time:</span><span>120 minutes</span></div>
+        <div class="sr"><span class="sr-label">Result:</span><span>Visually softer, less prominent</span></div>
+      </div>
+    </div>
+    <div class="scar-block">
+      <div class="scar-type">KELOID (Very raised, extends beyond wound margin)</div>
+      <div class="scar-body">
+        <div class="sr"><span class="sr-label">Efficacy:</span><span>40–50%</span></div>
+        <div class="sr"><span class="sr-label">Technique:</span><span>Recommend pre-treatment (laser or steroid injections)</span></div>
+        <div class="sr"><span class="sr-label">Time:</span><span>150+ minutes</span></div>
+        <div class="sr"><span class="sr-label">Result:</span><span>Physical removal requires a surgeon</span></div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-title">The Golden Rule</div>
+      Never promise "disappearance." Promise "visible reduction of 50–70%." This is honest, defensible, and still extraordinary.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 23 · Stretch Marks — Specialist Technique</div>
+  <div class="card">
+    <p class="card-intro">Stretch marks present as depigmented (light) or hyperpigmented (dark) linear changes.</p>
+    <ul class="fact-list">
+      <li><strong>Hypopigmented (light, common):</strong> Micro-dotting along the line. Depth 1.2–1.5 mm (shallower than areola). Colour matched to surrounding skin. 70% visual reduction over 3+ sessions.</li>
+      <li><strong>Hyperpigmented (dark, rarer):</strong> Lightening or colour equalisation. May require pre-treatment laser. 50–60% efficacy.</li>
+      <li><strong>Session requirements:</strong> Minimum 2–4 sessions, 6–8 weeks apart. Full improvement takes 3–6 months.</li>
+    </ul>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 24 · Vitiligo &amp; Dyschromia</div>
+  <div class="card">
+    <ul class="fact-list">
+      <li><strong>Vitiligo (pigment loss, white patches):</strong> Fill depigmented area to match surrounding skin. Requires 3–6 sessions for accurate colour match. High complexity — the hardest colour matching challenge in PMU.</li>
+      <li><strong>Dyschromia (uneven pigmentation, dark patches):</strong> Darken lighter areas OR lighten dark spots (requires pre-laser). 60–80% efficacy. Multiple sessions required.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION III ══════════════ -->
+<div class="section-header">
+  <div class="eyebrow">Section III</div>
+  <h2>Complications &amp; Risk Management</h2>
+  <p>Managing complications professionally is the mark of an expert. Every practitioner will face them. What defines your practice is how you respond.</p>
+</div>
+
+<div class="card-wrap">
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 25 · Infection — Prevention &amp; Management</div>
+  <div class="card">
+    <p class="card-intro">Risk: 0.5–2% with excellent sanitation.
+    5–10% with poor standards.</p>
+    <ul class="fact-list">
+      <li><strong>Prevention:</strong> Autoclave all non-disposable equipment (121°C, 15 PSI, 30 min). Single-use needles only — never reuse. 70% alcohol or chlorhexidine skin preparation. Mask, gloves, clean field.</li>
+      <li><strong>Warning signs (refer to physician):</strong> Excessive redness after day 3–5, purulent discharge, fever, swelling unresponsive to ice.</li>
+      <li><strong>Treatment:</strong> Antibiotic ointment (Bacitracin) or systemic antibiotics as directed by physician.</li>
+    </ul>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 26 · Blue/Grey Shift (Tyndall Effect)</div>
+  <div class="card">
+    <ul class="fact-list">
+      <li><strong>Cause:</strong> Over-deep pigment placement OR use of synthetic (non-iron-oxide) pigments</li>
+      <li><strong>Visual:</strong> Areola heals grey or violet instead of natural colour</li>
+      <li><strong>Treatment:</strong> Q-switched Nd:YAG laser removal (may be incomplete). Warm pigment correction requires 2–3 attempts.</li>
+      <li><strong>Prevention:</strong> Use ONLY iron-oxide certified pigments. Control depth meticulously. Practice 100+ hours on skin-pad before live clients.</li>
+    </ul>
+    <div class="highlight-box">
+      The most serious preventable complication in areola PMU. Cannot be solved with pigment alone. Prevention is the only reliable strategy.
+    </div>
+  </div>
+
+  <div class="topic-title"><div class="topic-dot"></div>TOPIC 27 · Legal Protection &amp; Insurance</div>
+  <div class="card">
+    <ul class="fact-list">
+      <li><strong>Licensing:</strong> Verify regulatory requirements in your jurisdiction — requirements vary significantly across EU countries</li>
+      <li><strong>Insurance:</strong> Professional liability insurance is mandatory (€500–1,500/year). Verify coverage for paramedical PMU specifically.</li>
+      <li><strong>Contracts:</strong> Written informed consent before every procedure, signed by client</li>
+      <li><strong>Record retention:</strong> Minimum 7 years. Encrypted cloud + local backup.</li>
+    </ul>
+    <div class="info-box">
+      <div class="ib-title">Your Best Protection</div>
+      Document everything. Manage expectations from the first contact. When a client is dissatisfied — offer a correction immediately. One happy client refers five new ones. One documented, professionally-handled complaint rarely escalates to a formal dispute.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION IV ══════════════ -->
+<div class="section-header">
+  <div class="eyebrow">Section IV</div>
+  <h2>Development &amp; The Road to Mastery</h2>
+</div>
+
+<div class="card-wrap">
+  <div class="card">
+    <p class="card-intro"><strong>Three years to mastery:</strong></p>
+
+    <div class="phase-block">
+      <div class="phase-head">YEAR 1 — TRAINING &amp; PRACTICE</div>
+      <div class="phase-body">
+        <li>100+ hours on skin-pad before your first live procedure</li>
+        <li>50+ first clients — competitive pricing, high volume, full documentation</li>
+        <li>Build your foundation: technique · consultation · documentation systems</li>
+        <div class="phase-earn">Target earning: €30,000–50,000</div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-head">YEAR 2 — SPECIALISATION &amp; REPUTATION</div>
+      <div class="phase-body">
+        <li>Focus on quality over volume</li>
+        <li>150+ clients at progressively higher rates</li>
+        <li>2–3 month waiting list developing</li>
+        <li>Masterclasses and international conferences</li>
+        <div class="phase-earn">Target earning: €80,000–120,000</div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-head">YEAR 3 — PREMIUM POSITIONING</div>
+      <div class="phase-body">
+        <li>90%+ of work: areola and camouflage only</li>
+        <li>4–6 month waiting list</li>
+        <li>Begin training other practitioners</li>
+        <li>Scale: second artist or second location</li>
+        <div class="phase-earn">Target earning: €150,000–200,000+</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="hl-title">Remember</div>
+      This is not simply a cosmetic service. You are restoring confidence for people who have survived trauma. Mastery is a journey, not a destination. Each client teaches you something no course can.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<div class="guide-footer">
+  <h3>BLB Academy</h3>
+  <p>Professional Paramedical PMU Education<br>International Certification Curriculum</p>
+
+  <div class="footer-links">
+    <div class="footer-link-item">🌐 browlash.eu</div>
+    <div class="footer-link-item">📧 blb.academy.pt@gmail.com</div>
+    <div class="footer-link-item">📍 Cascais, Portugal</div>
+  </div>
+
+  <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.7;">
+    Courses &amp; programmes:<br>
+    Realistic Areola — Full Certification Course<br>
+    Skin Defect Camouflage — Specialisation<br>
+    Paramedical PMU — Master Practitioner Programme<br>
+    Individual Mentoring
+  </p>
+
+  <div class="copyright">
+    © 2025 BLB Academy · BLB Brow &amp; Lash Buro · LENA LAB, LDA<br>
+    All rights reserved · Educational material for BLB course participants only
+  </div>
+</div>
+
+<!-- ══════════════ FLOATING CONTACT BUBBLES ══════════════ -->
+<div class="fab-container">
+  <button type="button" class="fab-btn question" onclick="openContactModal('question')">Ask a question</button>
+  <button type="button" class="fab-btn claim" onclick="openContactModal('claim')">Claim a place</button>
+</div>
+
+<div class="modal-overlay" id="contactModalOverlay">
+  <div class="modal-box">
+    <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+    <h3 id="contactModalTitle">Claim a place</h3>
+    <p class="modal-sub" id="contactModalSub">Leave your details and the BLB Academy team will get back to you.</p>
+    <form id="contactModalForm" onsubmit="submitContactModal(event)">
+      <div class="modal-field">
+        <label for="contactName">Name</label>
+        <input type="text" id="contactName" name="name" required>
+      </div>
+      <div class="modal-field">
+        <label for="contactPhone">Phone Number</label>
+        <input type="tel" id="contactPhone" name="phone" required>
+      </div>
+      <div class="modal-field">
+        <label for="contactEmail">Email</label>
+        <input type="email" id="contactEmail" name="email" required>
+      </div>
+      <div class="modal-field" id="contactQuestionField" style="display:none;">
+        <label for="contactQuestion">What is your question?</label>
+        <textarea id="contactQuestion" name="question"></textarea>
+      </div>
+      <button type="submit" class="modal-submit" id="contactSubmitBtn">Claim</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="successModalOverlay">
+  <div class="modal-box success-box">
+    <button type="button" class="modal-close" onclick="closeSuccessModal()" aria-label="Close">&times;</button>
+    <p class="success-text" id="successText" contenteditable="true" spellcheck="false"></p>
+    <div class="success-check">
+      <svg viewBox="0 0 52 52">
+        <circle class="success-check-circle" cx="26" cy="26" r="23"/>
+        <path class="success-check-mark" d="M14 27l7 7 16-16"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openContactModal(type) {
+    var overlay = document.getElementById('contactModalOverlay');
+    var title = document.getElementById('contactModalTitle');
+    var sub = document.getElementById('contactModalSub');
+    var questionField = document.getElementById('contactQuestionField');
+    var questionInput = document.getElementById('contactQuestion');
+    var submitBtn = document.getElementById('contactSubmitBtn');
+
+    overlay.dataset.type = type;
+
+    if (type === 'question') {
+      title.textContent = 'Ask a question';
+      sub.textContent = 'Leave your details and your question — we\'ll reply as soon as possible.';
+      questionField.style.display = 'block';
+      questionInput.required = true;
+      submitBtn.textContent = 'Ask';
+    } else {
+      title.textContent = 'Claim a place';
+      sub.textContent = 'Leave your details and the BLB Academy team will get back to you.';
+      questionField.style.display = 'none';
+      questionInput.required = false;
+      submitBtn.textContent = 'Claim';
+    }
+
+    overlay.classList.add('active');
+  }
+
+  function closeContactModal() {
+    var overlay = document.getElementById('contactModalOverlay');
+    overlay.classList.remove('active');
+    document.getElementById('contactModalForm').reset();
+  }
+
+  function submitContactModal(event) {
+    event.preventDefault();
+    var type = document.getElementById('contactModalOverlay').dataset.type;
+    closeContactModal();
+    openSuccessModal(type);
+  }
+
+  function openSuccessModal(type) {
+    var overlay = document.getElementById('successModalOverlay');
+    var box = overlay.querySelector('.success-box');
+    var text = document.getElementById('successText');
+    var circle = document.querySelector('.success-check-circle');
+    var mark = document.querySelector('.success-check-mark');
+
+    text.textContent = type === 'question'
+      ? "Thanks for sharing the details, our team will get to you as soon as possible."
+      : "Congratulations, you successfully claimed the limited offer for 3 free premium lessons.";
+
+    // restart the draw-in animation every time the modal opens
+    [circle, mark].forEach(function (el) {
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+    });
+
+    overlay.classList.add('active');
+
+    box.classList.remove('slide-out');
+    void box.offsetWidth;
+    box.classList.add('slide-in');
+  }
+
+  function closeSuccessModal() {
+    var overlay = document.getElementById('successModalOverlay');
+    var box = overlay.querySelector('.success-box');
+
+    box.classList.remove('slide-in');
+    void box.offsetWidth;
+    box.classList.add('slide-out');
+
+    box.addEventListener('animationend', function handler() {
+      overlay.classList.remove('active');
+      box.classList.remove('slide-out');
+      box.removeEventListener('animationend', handler);
+    });
+  }
+
+  document.getElementById('contactModalOverlay').addEventListener('click', function (e) {
+    if (e.target === this) closeContactModal();
+  });
+
+  document.getElementById('successModalOverlay').addEventListener('click', function (e) {
+    if (e.target === this) closeSuccessModal();
+  });
+</script>
+
+</body>
+</html>
