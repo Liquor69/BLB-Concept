@@ -8,34 +8,37 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
   :root {
-    --blb-dark:    #3B2314;
-    --blb-mocha:   #6B3F28;
-    --blb-warm:    #9C6B4A;
-    --blb-accent:  #C4956A;
+    --blb-dark:    #482826;
+    --blb-mocha:   #5E3A32;
+    --blb-warm:    #79493B;
+    --blb-accent:  #fce289;
     --blb-light:   #F5EFE8;
     --blb-cream:   #FDFAF6;
-    --blb-rose:    #8B4A52;
-    --blb-rose-mid:#A05868;
-    --blb-tag:     #C4956A;
+    --blb-rose:    #5E3A32;
+    --blb-rose-mid:#79493B;
+    --blb-light-brown: #79493B;
+    --blb-tag:     #fce289;
     --text-dark:   #2C1810;
     --text-mid:    #5A3A2A;
     --text-soft:   #7A5A48;
+    --content-width: 480px;
+    --scale: 1;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: #F0E8DF;
-    color: var(--text-dark);
-    max-width: 480px;
+    background: var(--blb-dark);
+    color: rgba(255,255,255,0.85);
+    max-width: var(--content-width);
     margin: 0 auto;
     padding: 0 0 60px;
   }
 
   /* ─── COVER ─────────────────────────────────────────────── */
   .cover {
-    background: linear-gradient(160deg, var(--blb-dark) 0%, var(--blb-mocha) 60%, var(--blb-accent) 100%);
+    background: linear-gradient(160deg, var(--blb-dark) 0%, var(--blb-mocha) 60%, #A9714E 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -152,7 +155,7 @@
     color: rgba(255,255,255,0.8);
     margin-bottom: 12px;
   }
-  .intro-section strong { color: var(--blb-accent); }
+  .intro-section strong { color: #fff; }
 
   .market-grid {
     display: grid;
@@ -163,8 +166,10 @@
   .market-bubble {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(196,149,106,0.3);
+    border-radius: 14px;
     padding: 20px 16px;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
   .market-bubble .amount {
     font-family: 'Cormorant Garamond', serif;
@@ -210,7 +215,8 @@
 
   .intro-stats {
     background: rgba(255,255,255,0.06);
-    border-radius: 12px;
+    border: 1px solid rgba(196,149,106,0.15);
+    border-radius: 14px;
     padding: 20px;
     margin-top: 20px;
   }
@@ -236,7 +242,7 @@
 
   /* ─── SECTION HEADERS ────────────────────────────────────── */
   .section-header {
-    background: linear-gradient(135deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
+    background: var(--blb-light-brown);
     padding: 36px 28px 28px;
     color: #fff;
   }
@@ -261,30 +267,27 @@
   }
 
   .pillar-header {
-    background: var(--blb-light);
-    padding: 28px 28px 20px;
-    border-left: 4px solid var(--blb-rose);
+    background: var(--blb-light-brown);
+    padding: 8px 28px 20px;
   }
   .pillar-tag {
     display: inline-block;
-    background: var(--blb-rose);
-    color: #fff;
+    color: var(--blb-accent);
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
     margin-bottom: 12px;
+    font-weight: 700;
   }
   .pillar-header h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
-    color: var(--blb-dark);
+    color: #fff;
     font-weight: 700;
   }
   .pillar-header p {
     font-size: 13px;
-    color: var(--text-soft);
+    color: rgba(255,255,255,0.7);
     margin-top: 6px;
     line-height: 1.5;
   }
@@ -293,33 +296,26 @@
   .card-wrap { padding: 0 0 4px; }
 
   .topic-title {
-    background: var(--blb-rose-mid);
-    padding: 14px 28px;
+    background: none;
+    padding: 18px 28px 4px;
     color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
   }
-  .topic-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    flex-shrink: 0;
-  }
+  .topic-dot { display: none; }
 
   .card {
-    background: #fff;
-    padding: 20px 28px;
-    border-bottom: 1px solid #EDE5DB;
+    background: var(--blb-dark);
+    padding: 6px 28px 20px;
+    color: rgba(255,255,255,0.85);
   }
-  .card:last-child { border-bottom: none; }
+  .card:last-child { box-shadow: none; }
 
   .card-intro {
     font-size: 13px;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.8);
     line-height: 1.6;
     margin-bottom: 16px;
   }
@@ -327,30 +323,32 @@
   .fact-list { list-style: none; }
   .fact-list li {
     font-size: 13px;
-    color: var(--text-dark);
+    color: rgba(255,255,255,0.85);
     line-height: 1.6;
     padding: 7px 0 7px 16px;
-    border-bottom: 1px solid #F0E8DF;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     position: relative;
   }
   .fact-list li:last-child { border-bottom: none; }
   .fact-list li::before {
     content: '·';
-    color: var(--blb-rose);
+    color: var(--blb-accent);
     position: absolute;
     left: 0;
     font-size: 18px;
     line-height: 1.3;
   }
-  .fact-list li strong { color: var(--blb-rose); }
+  .fact-list li strong { color: #fff; }
 
   .highlight-box {
-    background: var(--blb-rose-mid);
-    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
+    border-radius: 14px;
+    padding: 16px 18px;
     margin-top: 16px;
     color: #fff;
     font-size: 12px;
     line-height: 1.6;
+    box-shadow: 0 6px 18px rgba(59,35,20,0.16);
   }
   .highlight-box .hl-title {
     font-weight: 600;
@@ -362,90 +360,97 @@
   }
 
   .info-box {
-    background: var(--blb-light);
-    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.3);
+    border-radius: 14px;
     padding: 18px 20px;
     margin-top: 16px;
     font-size: 12px;
     line-height: 1.6;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.8);
   }
   .info-box .ib-title {
     font-weight: 700;
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--blb-rose);
+    color: var(--blb-accent);
     margin-bottom: 8px;
   }
 
-  .skin-type {
-    background: var(--blb-rose-mid);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-  }
-  .skin-detail {
-    background: #fff;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 16px;
-    border: 1px solid #EDE5DB;
+  .skin-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
     font-size: 12px;
-    color: var(--text-dark);
+    color: rgba(255,255,255,0.85);
     line-height: 1.6;
   }
-  .skin-detail .sk-row {
+  .skin-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .skin-block .sk-row {
     display: flex;
     margin-bottom: 4px;
   }
-  .sk-label { color: var(--blb-rose); font-weight: 600; min-width: 90px; }
+  .sk-label { color: rgba(255,255,255,0.6); font-weight: 600; min-width: 90px; }
 
   /* ─── TIMELINE ───────────────────────────────────────────── */
   .timeline { margin-top: 8px; }
   .tl-step {
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
+    padding: 10px 0;
     font-size: 12px;
     line-height: 1.6;
+    color: rgba(255,255,255,0.85);
   }
-  .tl-step.active  { background: var(--blb-rose-mid); color: #fff; }
-  .tl-step.muted   { background: var(--blb-light); color: var(--text-dark); }
-  .tl-step .tl-head { font-weight: 700; font-size: 11px; letter-spacing: 1px; margin-bottom: 5px; }
-  .tl-step.active .tl-head { opacity: 0.9; }
-  .tl-step.muted .tl-head { color: var(--blb-rose); }
+  .tl-step .tl-head { font-weight: 700; font-size: 11px; letter-spacing: 1px; color: #fff; margin-bottom: 6px; }
   .tl-step li { list-style: none; padding-left: 12px; position: relative; }
-  .tl-step li::before { content:'·'; position:absolute; left:0; }
+  .tl-step li::before { content:'·'; position:absolute; left:0; color: rgba(255,255,255,0.4); }
+  .text-divider {
+    border: none;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+    margin: 4px 0 14px;
+  }
 
   /* ─── SCAR TABLE ─────────────────────────────────────────── */
-  .scar-block { margin-bottom: 12px; }
-  .scar-type {
-    background: var(--blb-rose-mid);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 8px 8px 0 0;
+  .scar-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
     font-size: 12px;
-    font-weight: 600;
+    color: rgba(255,255,255,0.85);
   }
-  .scar-body {
-    background: #fff;
-    border: 1px solid #EDE5DB;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    padding: 12px 16px;
+  .scar-type {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
   }
-  .scar-body .sr { display:flex; gap:8px; margin-bottom:4px; font-size:12px; }
-  .sr-label { color:var(--blb-rose); font-weight:600; min-width:75px; }
+  .scar-block .sr { display:flex; gap:8px; margin-bottom:4px; font-size:12px; }
+  .sr-label { color:rgba(255,255,255,0.6); font-weight:600; min-width:75px; }
 
   /* ─── PIGMENT TABLE ──────────────────────────────────────── */
-  .ptable { width:100%; border-collapse:collapse; margin-top:12px; font-size:12px; }
+  .ptable {
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:12px;
+    font-size:12px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(59,35,20,0.06);
+  }
   .ptable th {
-    background: var(--blb-rose-mid);
+    background: linear-gradient(120deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
     color: #fff;
     padding: 10px 12px;
     text-align: left;
@@ -455,17 +460,17 @@
   }
   .ptable td {
     padding: 10px 12px;
-    border-bottom: 1px solid #EDE5DB;
-    color: var(--text-dark);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
     vertical-align: top;
     line-height: 1.5;
   }
-  .ptable tr:nth-child(even) td { background: var(--blb-light); }
+  .ptable tr:nth-child(even) td { background: rgba(255,255,255,0.05); }
   .ptable tr:last-child td { border-bottom: none; }
   .rec-badge {
-    background: var(--blb-rose);
+    background: linear-gradient(120deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 2px 8px;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -473,38 +478,47 @@
   }
 
   /* ─── COLOUR RECIPE ──────────────────────────────────────── */
-  .recipe-block { margin-bottom: 20px; }
-  .recipe-skin {
-    background: var(--blb-rose-mid);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 8px 8px 0 0;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .recipe-body {
-    background: #fff;
-    border: 1px solid #EDE5DB;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
+  .recipe-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius: 12px;
     padding: 14px 16px;
+    margin-bottom: 12px;
     font-size: 12px;
+    color: rgba(255,255,255,0.85);
+  }
+  .recipe-skin {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
   .recipe-row { display:flex; gap:8px; margin-bottom:6px; }
-  .recipe-row .rr-l { color:var(--blb-rose); font-weight:600; min-width:70px; }
+  .recipe-row .rr-l { color:rgba(255,255,255,0.6); font-weight:600; min-width:70px; }
   .mix-formula {
-    background: var(--blb-light);
-    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius: 8px;
     padding: 8px 12px;
     margin-top:8px;
     font-size:12px;
+    color: rgba(255,255,255,0.85);
   }
-  .mix-formula strong { color: var(--blb-rose); }
+  .mix-formula strong { color: #fff; }
 
   /* ─── NEUTRALISATION TABLE ───────────────────────────────── */
-  .neut-table { width:100%; border-collapse:collapse; margin-top:10px; font-size:12px; }
+  .neut-table {
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:10px;
+    font-size:12px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(59,35,20,0.06);
+  }
   .neut-table th {
-    background: var(--blb-rose-mid);
+    background: linear-gradient(120deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
     color: #fff;
     padding: 9px 12px;
     text-align: left;
@@ -513,129 +527,113 @@
   }
   .neut-table td {
     padding: 9px 12px;
-    border-bottom: 1px solid #EDE5DB;
-    color: var(--text-dark);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
   }
-  .neut-table tr:nth-child(even) td { background: var(--blb-light); }
-  .nt-g { color:#3C7A4A; font-weight:600; }
-  .nt-y { color:#BF8A00; font-weight:600; }
-  .nt-v { color:#6A3C80; font-weight:600; }
+  .neut-table tr:nth-child(even) td { background: rgba(255,255,255,0.05); }
+  .nt-g { color:#6FBE8C; font-weight:600; }
+  .nt-y { color:#E3B94D; font-weight:600; }
+  .nt-v { color:#B489D6; font-weight:600; }
 
   /* ─── DEPTH GUIDE ────────────────────────────────────────── */
   .depth-block {
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 10px;
     font-size: 12px;
     line-height: 1.6;
+    box-shadow: 0 3px 10px rgba(59,35,20,0.04);
   }
-  .depth-block.wrong { background:#FFF0F0; border-left:4px solid #C0392B; }
-  .depth-block.right { background:rgba(60,122,74,0.1); border-left:4px solid #3C7A4A; }
+  .depth-block.wrong { background:rgba(192,57,43,0.18); border-left:4px solid #E0605A; color: rgba(255,255,255,0.85); }
+  .depth-block.right { background:rgba(60,122,74,0.18); border-left:4px solid #5FBE7A; color: rgba(255,255,255,0.85); }
   .depth-block .db-head { font-weight:700; margin-bottom:6px; font-size:11px; letter-spacing:0.5px; }
-  .depth-block.wrong .db-head { color:#C0392B; }
-  .depth-block.right .db-head { color:#3C7A4A; }
+  .depth-block.wrong .db-head { color:#E0605A; }
+  .depth-block.right .db-head { color:#5FBE7A; }
   .depth-block li { list-style:none; padding-left:12px; position:relative; }
   .depth-block li::before { content:'·'; position:absolute; left:0; }
 
   /* ─── BLENDING METHODS ───────────────────────────────────── */
   .method-block {
-    background: var(--blb-rose-mid);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    color: #fff;
+    padding: 10px 0;
+    color: rgba(255,255,255,0.85);
     font-size: 12px;
     line-height: 1.6;
   }
-  .method-block .mb-head { font-weight:700; font-size:11px; letter-spacing:1px; margin-bottom:6px; }
-  .method-block li { list-style:none; padding-left:12px; position:relative; opacity:0.9; }
-  .method-block li::before { content:'·'; position:absolute; left:0; }
+  .method-block .mb-head { font-weight:700; font-size:11px; letter-spacing:1px; color:#fff; margin-bottom:6px; }
+  .method-block li { list-style:none; padding-left:12px; position:relative; }
+  .method-block li::before { content:'·'; position:absolute; left:0; color: rgba(255,255,255,0.4); }
 
   /* ─── 3D LAYERS ──────────────────────────────────────────── */
   .layer-block {
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
   }
   .layer-head {
-    background: var(--blb-rose-mid);
-    padding: 10px 16px;
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .layer-body {
-    background: #fff;
-    border: 1px solid #EDE5DB;
-    border-top: none;
-    padding: 12px 16px;
-    font-size: 12px;
-    line-height: 1.6;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
   }
   .layer-body .lr { display:flex; gap:8px; margin-bottom:4px; }
-  .lr-l { color:var(--blb-rose); font-weight:600; min-width:80px; }
+  .lr-l { color:rgba(255,255,255,0.6); font-weight:600; min-width:80px; }
 
   /* ─── CONSULTATION FLOW ──────────────────────────────────── */
   .consult-phase {
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
+    padding: 10px 0;
   }
   .cp-head {
-    background: var(--blb-rose-mid);
-    padding: 10px 16px;
     color: #fff;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
   }
   .cp-body {
-    background: #fff;
-    border: 1px solid #EDE5DB;
-    border-top: none;
-    padding: 12px 16px;
     font-size: 12px;
     line-height: 1.6;
+    color: rgba(255,255,255,0.85);
   }
   .cp-body li { list-style:none; padding-left:14px; position:relative; margin-bottom:5px; }
-  .cp-body li::before { content:'·'; color:var(--blb-rose); position:absolute; left:0; font-size:16px; line-height:1.3; }
+  .cp-body li::before { content:'·'; color:rgba(255,255,255,0.4); position:absolute; left:0; font-size:16px; line-height:1.3; }
 
   /* ─── RED FLAGS ──────────────────────────────────────────── */
   .red-flag {
-    background:#FFF5F5;
-    border-left:4px solid #B03030;
-    border-radius:0 8px 8px 0;
+    background:rgba(176,48,48,0.18);
+    border-left:4px solid #D9605A;
+    border-radius:0 10px 10px 0;
     padding:12px 16px;
     margin-bottom:8px;
     font-size:12px;
     line-height:1.6;
-    color:var(--text-dark);
+    color:rgba(255,255,255,0.85);
   }
-  .red-flag .rf-head { color:#B03030; font-weight:700; margin-bottom:4px; font-size:11px; }
+  .red-flag .rf-head { color:#E0857F; font-weight:700; margin-bottom:4px; font-size:11px; }
 
   /* ─── PRICING TABLE ──────────────────────────────────────── */
   .price-block {
-    border-radius:8px;
-    margin-bottom:10px;
-    overflow:hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius:12px;
+    padding: 14px 16px;
+    margin-bottom:12px;
+    font-size:12px;
+    color: rgba(255,255,255,0.85);
   }
   .pb-head {
-    background: var(--blb-rose-mid);
-    padding:10px 16px;
     color:#fff;
-    font-size:11px;
+    font-size:13px;
     font-weight:700;
-    letter-spacing:1px;
-  }
-  .pb-body {
-    background:#fff;
-    border:1px solid #EDE5DB;
-    border-top:none;
-    padding:12px 16px;
-    font-size:12px;
+    letter-spacing:0.3px;
+    margin-bottom: 8px;
   }
   .pb-body .pr { display:flex; gap:8px; margin-bottom:4px; }
-  .pr-l { color:var(--blb-rose); font-weight:600; min-width:100px; }
+  .pr-l { color:rgba(255,255,255,0.6); font-weight:600; min-width:100px; }
 
   .comparison-grid {
     display:grid;
@@ -644,49 +642,44 @@
     margin-top:12px;
   }
   .comp-card {
-    border-radius:8px;
+    border-radius:12px;
     padding:14px 12px;
     text-align:center;
     font-size:12px;
   }
-  .comp-card.basic { background:rgba(160,88,104,0.1); border:1px solid rgba(160,88,104,0.3); }
-  .comp-card.premium { background:var(--blb-rose-mid); color:#fff; }
+  .comp-card.basic { background:rgba(255,255,255,0.06); border:1px solid rgba(196,149,106,0.25); }
+  .comp-card.premium { background: linear-gradient(135deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%); color:#fff; box-shadow: 0 6px 16px rgba(59,35,20,0.16); }
   .comp-card .cc-type { font-size:10px; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; opacity:0.8; }
-  .comp-card .cc-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; }
+  .comp-card .cc-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color: var(--blb-accent); }
   .comp-card .cc-unit { font-size:10px; opacity:0.7; }
 
   /* ─── PHASE ROADMAP ──────────────────────────────────────── */
   .phase-block {
-    border-radius:8px;
-    overflow:hidden;
-    margin-bottom:12px;
+    padding: 10px 0;
   }
   .phase-head {
-    background: var(--blb-dark);
-    padding:10px 16px;
     color:#fff;
     font-size:11px;
     font-weight:700;
     letter-spacing:1.5px;
     text-transform:uppercase;
+    margin-bottom: 6px;
   }
   .phase-body {
-    background:#fff;
-    border:1px solid #EDE5DB;
-    border-top:none;
-    padding:12px 16px;
     font-size:12px;
     line-height:1.7;
+    color: rgba(255,255,255,0.85);
   }
   .phase-body li { list-style:none; padding-left:14px; position:relative; margin-bottom:4px; }
-  .phase-body li::before { content:'·'; color:var(--blb-accent); position:absolute; left:0; font-size:16px; line-height:1.3; }
+  .phase-body li::before { content:'·'; color:rgba(255,255,255,0.4); position:absolute; left:0; font-size:16px; line-height:1.3; }
   .phase-earn {
-    background:var(--blb-light);
-    border-radius:6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius:8px;
     padding:8px 12px;
     margin-top:8px;
     font-weight:600;
-    color:var(--blb-rose);
+    color:var(--blb-accent);
     font-size:12px;
   }
 
@@ -695,46 +688,43 @@
     display:flex;
     gap:12px;
     padding:12px 0;
-    border-bottom:1px solid #EDE5DB;
+    border-bottom:1px solid rgba(255,255,255,0.08);
     font-size:12px;
     line-height:1.5;
   }
   .followup-item:last-child { border-bottom:none; }
   .fu-day {
-    background:var(--blb-rose-mid);
+    background: linear-gradient(120deg, var(--blb-rose) 0%, var(--blb-rose-mid) 100%);
     color:#fff;
-    border-radius:6px;
+    border-radius:8px;
     padding:4px 10px;
     font-size:11px;
     font-weight:600;
     white-space:nowrap;
     height:fit-content;
+    box-shadow: 0 2px 8px rgba(59,35,20,0.15);
   }
-  .fu-text { color:var(--text-dark); }
+  .fu-text { color:rgba(255,255,255,0.85); }
 
   /* ─── COMPLICATION TABLE ─────────────────────────────────── */
   .comp-issue {
-    border-radius:8px;
-    overflow:hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,149,106,0.25);
+    border-radius:12px;
+    padding: 14px 16px;
     margin-bottom:12px;
+    font-size:12px;
+    color: rgba(255,255,255,0.85);
   }
   .ci-head {
-    background:var(--blb-rose-mid);
-    padding:10px 16px;
     color:#fff;
-    font-size:12px;
-    font-weight:600;
-  }
-  .ci-body {
-    background:#fff;
-    border:1px solid #EDE5DB;
-    border-top:none;
-    padding:12px 16px;
-    font-size:12px;
-    line-height:1.6;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
   }
   .ci-body .ci-r { display:flex; gap:8px; margin-bottom:5px; }
-  .cir-l { color:var(--blb-rose); font-weight:600; min-width:85px; }
+  .cir-l { color:rgba(255,255,255,0.6); font-weight:600; min-width:85px; }
 
   /* ─── FOOTER ─────────────────────────────────────────────── */
   .guide-footer {
@@ -765,10 +755,11 @@
   .footer-link-item {
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(196,149,106,0.2);
-    border-radius:8px;
+    border-radius:12px;
     padding:10px 16px;
     color:rgba(255,255,255,0.85);
     font-size:12px;
+    transition: background 0.2s ease;
   }
   .copyright {
     margin-top:24px;
@@ -784,26 +775,29 @@
     height: 4px;
     background: linear-gradient(90deg, var(--blb-dark), var(--blb-rose), var(--blb-accent));
   }
-  .spacer { height: 4px; background: var(--blb-light); }
+  .spacer { height: 4px; background: var(--blb-dark); }
 
   /* ─── FLOATING CONTACT BUBBLES ───────────────────────────── */
   .fab-container {
     position: fixed;
-    bottom: 24px;
-    right: max(20px, calc((100vw - 480px) / 2 + 20px));
+    bottom: 100px;
+    left: 16px;
+    right: max(16px, calc((100vw - var(--content-width)) / 2 + 16px));
     z-index: 1000;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
   }
   .fab-btn {
     border: none;
     cursor: pointer;
-    padding: 14px 22px;
-    border-radius: 30px;
+    padding: 20px 32px;
+    border-radius: 36px;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.2px;
     white-space: nowrap;
@@ -827,13 +821,13 @@
   }
   .modal-overlay.active { display: flex; }
   .modal-box {
-    background: var(--blb-cream);
+    background: var(--blb-dark);
     border-radius: 14px;
     width: 100%;
     max-width: 380px;
     padding: 32px 26px 26px;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
   .modal-close {
     position: absolute;
@@ -842,19 +836,19 @@
     border: none;
     font-size: 22px;
     line-height: 1;
-    color: var(--text-soft);
+    color: rgba(255,255,255,0.6);
     cursor: pointer;
   }
   .modal-box h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
     font-weight: 700;
-    color: var(--blb-dark);
+    color: #fff;
     margin-bottom: 6px;
   }
   .modal-sub {
     font-size: 12px;
-    color: var(--text-soft);
+    color: rgba(255,255,255,0.7);
     margin-bottom: 20px;
     line-height: 1.5;
   }
@@ -865,24 +859,24 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--blb-rose);
+    color: var(--blb-accent);
     margin-bottom: 6px;
   }
   .modal-field input,
   .modal-field textarea {
     width: 100%;
     padding: 11px 13px;
-    border: 1px solid #EDE5DB;
+    border: 1px solid rgba(196,149,106,0.3);
     border-radius: 8px;
-    background: #fff;
+    background: rgba(255,255,255,0.08);
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    color: var(--text-dark);
+    color: #fff;
   }
   .modal-field input:focus,
   .modal-field textarea:focus {
     outline: none;
-    border-color: var(--blb-rose);
+    border-color: var(--blb-accent);
   }
   .modal-field textarea { resize: vertical; min-height: 70px; }
   .modal-submit {
@@ -920,12 +914,12 @@
   .success-text {
     font-size: 14px;
     line-height: 1.7;
-    color: var(--text-dark);
+    color: rgba(255,255,255,0.9);
     outline: none;
     border-radius: 8px;
     padding: 6px 8px;
   }
-  .success-text:focus { background: var(--blb-light); }
+  .success-text:focus { background: rgba(255,255,255,0.08); }
   .success-check {
     width: 72px;
     height: 72px;
@@ -951,13 +945,68 @@
   }
   @keyframes successCircle { to { stroke-dashoffset: 0; } }
   @keyframes successMark { to { stroke-dashoffset: 0; } }
+
+  /* ─── DESKTOP / FHD SCALING ──────────────────────────────── */
+  @media (min-width: 900px) {
+    :root {
+      --content-width: 860px;
+      --scale: 1.28;
+    }
+    body { max-width: none; font-size: calc(1em * var(--scale)); }
+    .cover-logo        { font-size: calc(28px * var(--scale)); }
+    .cover-sub         { font-size: calc(10px * var(--scale)); }
+    .cover-eyebrow     { font-size: calc(10px * var(--scale)); }
+    .cover-title       { font-size: calc(42px * var(--scale)); }
+    .cover-desc        { font-size: calc(13px * var(--scale)); }
+    .cover-badge       { font-size: calc(11px * var(--scale)); }
+    .cover-author      { font-size: calc(11px * var(--scale)); }
+    .cover-year        { font-size: calc(40px * var(--scale)); }
+    .intro-section h2  { font-size: calc(32px * var(--scale)); }
+    .intro-section p   { font-size: calc(13px * var(--scale)); }
+    .market-bubble .amount { font-size: calc(28px * var(--scale)); }
+    .market-bubble .label  { font-size: calc(10px * var(--scale)); }
+    .intro-stats li    { font-size: calc(12px * var(--scale)); }
+    .section-header h2 { font-size: calc(32px * var(--scale)); }
+    .section-header p  { font-size: calc(13px * var(--scale)); }
+    .section-header .eyebrow { font-size: calc(10px * var(--scale)); }
+    .pillar-header h3  { font-size: calc(26px * var(--scale)); }
+    .pillar-header p   { font-size: calc(13px * var(--scale)); }
+    .pillar-tag        { font-size: calc(10px * var(--scale)); }
+    .topic-title       { font-size: calc(13px * var(--scale)); }
+    .card-intro        { font-size: calc(13px * var(--scale)); }
+    .fact-list li      { font-size: calc(13px * var(--scale)); }
+    .highlight-box, .info-box { font-size: calc(12px * var(--scale)); }
+    .guide-footer h3   { font-size: calc(24px * var(--scale)); }
+    .guide-footer p, .footer-link-item, .copyright { font-size: calc(12px * var(--scale)); }
+
+    /* full-bleed section backgrounds with a centered, readable inner column */
+    .cover {
+      padding-left: max(calc(32px * var(--scale)), calc((100% - var(--content-width)) / 2 + 32px * var(--scale)));
+      padding-right: max(calc(32px * var(--scale)), calc((100% - var(--content-width)) / 2 + 32px * var(--scale)));
+    }
+    .intro-section, .section-header, .pillar-header, .card, .topic-title, .guide-footer {
+      padding-left: max(calc(28px * var(--scale)), calc((100% - var(--content-width)) / 2 + 28px * var(--scale)));
+      padding-right: max(calc(28px * var(--scale)), calc((100% - var(--content-width)) / 2 + 28px * var(--scale)));
+    }
+    .pillar-header { border-left: none; }
+
+    .fab-btn { font-size: calc(16px * var(--scale)); padding: calc(20px * var(--scale)) calc(32px * var(--scale)); }
+    .modal-box { max-width: calc(380px * var(--scale)); padding: calc(32px * var(--scale)) calc(26px * var(--scale)) calc(26px * var(--scale)); }
+    .modal-box h3 { font-size: calc(26px * var(--scale)); }
+    .modal-sub { font-size: calc(12px * var(--scale)); }
+    .modal-field label { font-size: calc(10px * var(--scale)); }
+    .modal-field input, .modal-field textarea { font-size: calc(13px * var(--scale)); padding: calc(11px * var(--scale)) calc(13px * var(--scale)); }
+    .modal-submit { font-size: calc(12px * var(--scale)); padding: calc(13px * var(--scale)); }
+    .success-text { font-size: calc(14px * var(--scale)); }
+    .success-check { width: calc(72px * var(--scale)); height: calc(72px * var(--scale)); }
+  }
 </style>
 </head>
 <body>
   <!-- ══════════════ COVER ══════════════ -->
 <div class="cover">
   <div>
-    <div class="cover-logo">BLB</div>
+    <div class="cover-logo">BLB Concept</div>
     <div class="cover-sub">Brow &amp; Lash Buro · Academy</div>
   </div>
   <div class="cover-hero">
@@ -976,7 +1025,7 @@
       <strong>BLB Academy</strong>
       browlash.eu · blb.academy.pt@gmail.com
     </div>
-    <div class="cover-year">2025</div>
+    <div class="cover-year">2026</div>
   </div>
 </div>
 
@@ -991,7 +1040,7 @@
   <div class="market-grid">
     <div class="market-bubble">
       <div class="amount">$500M</div>
-      <div class="label">Market 2025</div>
+      <div class="label">Market 2026</div>
     </div>
     <div class="market-bubble">
       <div class="amount">$800M</div>
@@ -1023,8 +1072,6 @@
   <p>Expertise in paramedical PMU rests on five interconnected foundations. Every world-class practitioner excels in all five — technical skill alone is never enough.</p>
 </div>
 
-<div class="spacer"></div>
-
 <!-- ── PILLAR 1 ── -->
 <div class="pillar-header">
   <div class="pillar-tag">Pillar 1</div>
@@ -1034,7 +1081,7 @@
 
 <div class="card-wrap">
   <!-- TOPIC 1 -->
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 1 · The Areolar Complex</div>
+  <h4 class="topic-title">The Areolar Complex</h4>
   <div class="card">
     <p class="card-intro">What every practitioner must know:</p>
     <ul class="fact-list">
@@ -1051,24 +1098,24 @@
   </div>
 
   <!-- TOPIC 2 -->
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 2 · Fitzpatrick Scale — Practical Application</div>
+  <h4 class="topic-title">Fitzpatrick Scale — Practical Application</h4>
   <div class="card">
     <p class="card-intro">Skin type classification (Fitzpatrick) — practical approach for areola work:</p>
 
-    <div class="skin-type">TYPE I–II (Fair Skin)</div>
-    <div class="skin-detail">
+    <div class="skin-block">
+      <div class="skin-name">TYPE I–II (Fair Skin)</div>
       <div class="sk-row"><span class="sk-label">Particularity:</span><span>Requires light, warm-toned pigments. Cool pinks and stark reds appear unnatural.</span></div>
       <div class="sk-row"><span class="sk-label">Challenge:</span><span>Overly bright pigments heal visibly artificial. Blend into skin undertone first.</span></div>
     </div>
 
-    <div class="skin-type">TYPE III–IV (Medium/Olive Skin)</div>
-    <div class="skin-detail">
+    <div class="skin-block">
+      <div class="skin-name">TYPE III–IV (Medium/Olive Skin)</div>
       <div class="sk-row"><span class="sk-label">Particularity:</span><span>Ideal teaching cases — results are highly visible and easier to assess objectively.</span></div>
       <div class="sk-row"><span class="sk-label">Challenge:</span><span>Results are easier to control; focus on gradient and natural asymmetry.</span></div>
     </div>
 
-    <div class="skin-type">TYPE V–VI (Dark Skin)</div>
-    <div class="skin-detail">
+    <div class="skin-block">
+      <div class="skin-name">TYPE V–VI (Dark Skin)</div>
       <div class="sk-row"><span class="sk-label">Particularity:</span><span>Requires saturated, deep pigments. Undertones are complex and must be matched precisely.</span></div>
       <div class="sk-row"><span class="sk-label">Challenge:</span><span>Selecting the correct shade is the primary technical difficulty. Always patch-test first.</span></div>
     </div>
@@ -1080,35 +1127,39 @@
   </div>
 
   <!-- TOPIC 3 -->
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 3 · Full Healing Cycle</div>
+  <h4 class="topic-title">Full Healing Cycle</h4>
   <div class="card">
     <p class="card-intro">Timeline every practitioner must know by heart:</p>
     <div class="timeline">
-      <div class="tl-step active">
+      <div class="tl-step">
         <div class="tl-head">DAYS 0–3 / INFLAMMATION</div>
         <li>Pigment appears 25% darker than it will heal</li>
         <li>Mild swelling and minor bleeding are normal</li>
         <li>Client concern: "it's too dark" — reassure proactively</li>
       </div>
-      <div class="tl-step muted">
+      <hr class="text-divider">
+      <div class="tl-step">
         <div class="tl-head">DAYS 3–7 / CRUST FORMATION</div>
         <li>Scabbing begins to develop</li>
         <li>Mild itching is normal and expected</li>
         <li>Key care rule: do not touch, do not wet, no exercise</li>
       </div>
-      <div class="tl-step active">
+      <hr class="text-divider">
+      <div class="tl-step">
         <div class="tl-head">DAYS 7–21 / CRUST SHEDDING</div>
         <li>Crust falls away naturally — do not force</li>
         <li>Pigment lightens by 10–15% as healing progresses</li>
         <li>Client may feel "it's all gone" — this is normal</li>
       </div>
-      <div class="tl-step muted">
+      <hr class="text-divider">
+      <div class="tl-step">
         <div class="tl-head">DAYS 21–42 / COLOUR STABILISATION</div>
         <li>Final colour begins to emerge through the skin</li>
         <li>Additional 5% lightening may occur</li>
         <li>This is the optimal moment to assess the result</li>
       </div>
-      <div class="tl-step active">
+      <hr class="text-divider">
+      <div class="tl-step">
         <div class="tl-head">DAY 42+ / FINAL PICTURE</div>
         <li>Result is stable and fully healed</li>
         <li>Pigment is ready for long-term assessment</li>
@@ -1123,35 +1174,27 @@
   </div>
 
   <!-- TOPIC 4 -->
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 4 · Scar Tissue — Diagnosis &amp; Approach</div>
+  <h4 class="topic-title">Scar Tissue — Diagnosis &amp; Approach</h4>
   <div class="card">
     <p class="card-intro">Scar typology — brief practical classification:</p>
 
     <div class="scar-block">
       <div class="scar-type">NORMOTROPHIC (Flat, slightly depigmented)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90% visual improvement</span></div>
-        <div class="sr"><span class="sr-label">Approach:</span><span>Colour equalisation + soft edge darkening</span></div>
-        <div class="sr"><span class="sr-label">Complexity:</span><span>Low — ideal for building portfolio</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90% visual improvement</span></div>
+      <div class="sr"><span class="sr-label">Approach:</span><span>Colour equalisation + soft edge darkening</span></div>
+      <div class="sr"><span class="sr-label">Complexity:</span><span>Low — ideal for building portfolio</span></div>
     </div>
-
     <div class="scar-block">
       <div class="scar-type">HYPERTROPHIC (Raised, reddish-brown)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75% visual improvement</span></div>
-        <div class="sr"><span class="sr-label">Approach:</span><span>Optical depth illusion — dark edges, lighter centre</span></div>
-        <div class="sr"><span class="sr-label">Complexity:</span><span>Medium — requires colour theory mastery</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75% visual improvement</span></div>
+      <div class="sr"><span class="sr-label">Approach:</span><span>Optical depth illusion — dark edges, lighter centre</span></div>
+      <div class="sr"><span class="sr-label">Complexity:</span><span>Medium — requires colour theory mastery</span></div>
     </div>
-
     <div class="scar-block">
       <div class="scar-type">KELOID (Very raised, extends beyond wound margin)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Approach:</span><span>Refer to dermatologist or surgeon first</span></div>
-        <div class="sr"><span class="sr-label">Note:</span><span>Keloids are NOT suitable for tattooing. Recommend medical treatment before any PMU intervention.</span></div>
-        <div class="sr"><span class="sr-label">Complexity:</span><span>High — do not proceed without medical clearance</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Approach:</span><span>Refer to dermatologist or surgeon first</span></div>
+      <div class="sr"><span class="sr-label">Note:</span><span>Keloids are NOT suitable for tattooing. Recommend medical treatment before any PMU intervention.</span></div>
+      <div class="sr"><span class="sr-label">Complexity:</span><span>High — do not proceed without medical clearance</span></div>
     </div>
 
     <div class="info-box">
@@ -1161,11 +1204,11 @@
   </div>
 
   <!-- TOPIC 5 -->
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 5 · Natural Pigmentation &amp; Asymmetry</div>
+  <h4 class="topic-title">Natural Pigmentation &amp; Asymmetry</h4>
   <div class="card">
     <p class="card-intro">The fundamental discovery every practitioner must internalise:</p>
     <ul class="fact-list">
-      <li>Natural areolae are <strong>NEVER</strong> perfectly symmetrical.</li>
+      <li>Natural areolae are <strong style="color:var(--blb-accent);">NEVER</strong> perfectly symmetrical.</li>
       <li>Left vs right: 20–30% variation in size, shape, and colour is anatomically normal.</li>
       <li>The centre is typically lighter; the periphery naturally darker — this creates depth.</li>
       <li>Montgomery glands are distributed randomly, not uniformly.</li>
@@ -1191,7 +1234,7 @@
   <p>Colour science is what separates masters from beginners.</p>
 </div>
   <div class="card-wrap">
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 6 · Colour Theory Fundamentals</div>
+  <h4 class="topic-title">Colour Theory Fundamentals</h4>
   <div class="card">
     <p class="card-intro">The Itten colour wheel — applied to areola micropigmentation:</p>
     <p class="card-intro"><strong>The colour of an areola is primarily the colour of melanin.</strong> The darkest areola in tone matches the darkest natural mole on the body. Areolae always contain a significant yellow component; the soft pink quality comes from superficial vascularity.</p>
@@ -1210,14 +1253,14 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 7 · Pigment Selection by Skin Type</div>
+  <h4 class="topic-title">Pigment Selection by Skin Type</h4>
   <div class="card">
     <div class="recipe-block">
       <div class="recipe-skin">FAIR SKIN (Fitzpatrick I–II)</div>
       <div class="recipe-body">
         <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Rose · Peach · Warm beige</span></div>
         <div class="recipe-row"><span class="rr-l">Common error:</span><span>Using brown tones — heals unnaturally dark and muddy</span></div>
-        <div class="mix-formula"><strong>Mixing formula:</strong> 70% rose + 20% peach + 10% yellow</div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> <span style="color:var(--blb-accent);">70%</span> rose + <span style="color:var(--blb-accent);">20%</span> peach + <span style="color:var(--blb-accent);">10%</span> yellow</div>
       </div>
     </div>
     <div class="recipe-block">
@@ -1225,7 +1268,7 @@
       <div class="recipe-body">
         <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Brown · Reddish · Olive</span></div>
         <div class="recipe-row"><span class="rr-l">Common error:</span><span>Single brown only — result looks flat and uniform</span></div>
-        <div class="mix-formula"><strong>Mixing formula:</strong> 50% brown + 30% red + 20% yellow</div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> <span style="color:var(--blb-accent);">50%</span> brown + <span style="color:var(--blb-accent);">30%</span> red + <span style="color:var(--blb-accent);">20%</span> yellow</div>
       </div>
     </div>
     <div class="recipe-block">
@@ -1233,7 +1276,7 @@
       <div class="recipe-body">
         <div class="recipe-row"><span class="rr-l">Base colours:</span><span>Dark brown · Reddish brown · Burgundy</span></div>
         <div class="recipe-row"><span class="rr-l">Common error:</span><span>Pure red — heals unnaturally bright</span></div>
-        <div class="mix-formula"><strong>Mixing formula:</strong> 60% dark brown + 25% red + 15% warm tone</div>
+        <div class="mix-formula"><strong>Mixing formula:</strong> <span style="color:var(--blb-accent);">60%</span> dark brown + <span style="color:var(--blb-accent);">25%</span> red + <span style="color:var(--blb-accent);">15%</span> warm tone</div>
       </div>
     </div>
     <div class="info-box">
@@ -1242,9 +1285,9 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 8 · Scar Colour Neutralisation</div>
+  <h4 class="topic-title">Scar Colour Neutralisation</h4>
   <div class="card">
-    <p class="card-intro"><strong>2025 Technique: Complementary Neutralisation</strong><br>
+    <p class="card-intro"><strong>2026 Technique: Complementary Neutralisation</strong><br>
     If a scar carries an unwanted undertone, use the complementary colour from the opposite side of the wheel:</p>
     <table class="neut-table">
       <tr><th>Scar Colour</th><th>Neutraliser</th><th>Then Apply</th></tr>
@@ -1257,7 +1300,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 9 · Pigment Longevity</div>
+  <h4 class="topic-title">Pigment Longevity</h4>
   <div class="card">
     <table class="ptable">
       <tr><th>Type</th><th>Iron Oxide</th><th>Hybrid</th></tr>
@@ -1283,7 +1326,7 @@
 </div>
 
 <div class="card-wrap">
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 10 · Equipment Selection</div>
+  <h4 class="topic-title">Equipment Selection</h4>
   <div class="card">
     <ul class="fact-list">
       <li><strong>Rotary machines (eccentric 2.5–3.5 mm):</strong> Optimal for areola and camouflage work. Soft, predictable impact — allows fine depth and trauma control.</li>
@@ -1293,7 +1336,7 @@
     </ul>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 11 · Depth of Pigmentation — The Master Skill</div>
+  <h4 class="topic-title">Depth of Pigmentation — The Master Skill</h4>
   <div class="card">
     <div class="depth-block wrong">
       <div class="db-head">TOO SHALLOW (0.5–1.0 mm)</div>
@@ -1301,8 +1344,8 @@
       <li>Client paid for a permanent result — receives none</li>
       <li>Result: complaint, reputation risk, rework</li>
     </div>
-    <div class="depth-block wrong" style="background:#FFF5F0; border-left-color:#BF6020;">
-      <div class="db-head" style="color:#BF6020;">TOO DEEP (&gt;2.5 mm)</div>
+    <div class="depth-block wrong" style="background:rgba(191,96,32,0.18); border-left-color:#D9884D;">
+      <div class="db-head" style="color:#D9884D;">TOO DEEP (&gt;2.5 mm)</div>
       <li>Tyndall effect — blue/grey undertone that cannot be corrected with pigment alone</li>
       <li>Scarring risk — requires laser removal before rework</li>
       <li>Most serious technical error in paramedical PMU</li>
@@ -1319,7 +1362,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 12 · Blending Techniques for Natural Results</div>
+  <h4 class="topic-title">Blending Techniques for Natural Results</h4>
   <div class="card">
     <div class="method-block">
       <div class="mb-head">METHOD 1 · FEATHERING (60% of procedure time)</div>
@@ -1327,13 +1370,15 @@
       <li>Decrease passes: 5 in centre → 3 mid-zone → 1 at edge</li>
       <li>Result: smooth gradient, no visible hard border</li>
     </div>
-    <div class="method-block" style="background:rgba(160,88,104,0.7);">
+    <hr class="text-divider">
+    <div class="method-block">
       <div class="mb-head">METHOD 2 · STIPPLING/DOTTING (25% of procedure time)</div>
       <li>Isolated points using 3RL or 5RS needle</li>
       <li>Mimics Montgomery glands — creates organic texture</li>
       <li>5–15 points per areola, placed asymmetrically</li>
     </div>
-    <div class="method-block" style="background:rgba(107,63,40,0.8);">
+    <hr class="text-divider">
+    <div class="method-block">
       <div class="mb-head">METHOD 3 · SPIRAL TECHNIQUE (15% of procedure time)</div>
       <li>Spiral motion from centre outward</li>
       <li>Produces 10% more uniform gradient than linear passes</li>
@@ -1356,7 +1401,7 @@
 </div>
 
 <div class="card-wrap">
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 13 · Consultation &amp; Expectation Management</div>
+  <h4 class="topic-title">Consultation &amp; Expectation Management</h4>
   <div class="card">
     <div class="info-box">
       <div class="ib-title">Consultation Duration</div>
@@ -1372,7 +1417,7 @@
         <li>What is their specific vision? Listen without interrupting.</li>
       </div>
     </div>
-
+    <hr class="text-divider">
     <div class="consult-phase">
       <div class="cp-head">PHASE 2 — EDUCATION (20 min)</div>
       <div class="cp-body">
@@ -1382,7 +1427,7 @@
         <li>Set realistic expectations on corrections (typically 1–2 in year one)</li>
       </div>
     </div>
-
+    <hr class="text-divider">
     <div class="consult-phase">
       <div class="cp-head">PHASE 3 — GOAL DEFINITION (15 min)</div>
       <div class="cp-body">
@@ -1393,15 +1438,15 @@
       </div>
     </div>
 
-    <p style="font-size:12px; color:var(--text-mid); padding:0 4px; margin-top:12px; line-height:1.6;">
-      <strong style="color:var(--blb-rose);">Red flags — when to decline:</strong>
+    <p style="font-size:12px; color:rgba(255,255,255,0.8); padding:0 4px; margin-top:12px; line-height:1.6;">
+      <strong style="color:#fff;">Red flags — when to decline:</strong>
     </p>
     <div class="red-flag"><div class="rf-head">Client demands perfect symmetry</div>Explain the anatomy. If they remain insistent after education → decline respectfully.</div>
     <div class="red-flag"><div class="rf-head">Signs of body dysmorphia</div>Gently recommend a psychological consultation before any cosmetic procedure.</div>
     <div class="red-flag"><div class="rf-head">External pressure (partner/family)</div>"This is your body. The decision must be yours alone." Redirect the conversation back to the client's own wishes, away from outside pressure.</div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 14 · Informed Consent &amp; Documentation</div>
+  <h4 class="topic-title">Informed Consent &amp; Documentation</h4>
   <div class="card">
     <p class="card-intro"><strong>Legal protection begins BEFORE the procedure.</strong></p>
     <ul class="fact-list">
@@ -1420,7 +1465,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 15 · Long-term Client Relationships</div>
+  <h4 class="topic-title">Long-term Client Relationships</h4>
   <div class="card">
     <p class="card-intro">One client who trusts you completely can bring you 10 more through referral.</p>
     <div class="followup-item"><span class="fu-day">Day 1</span><div class="fu-text">Call/text: "How are you feeling? Any excessive swelling?" Remind: no exercise, no wetting.</div></div>
@@ -1431,7 +1476,7 @@
     <div class="followup-item"><span class="fu-day">Year 1+</span><div class="fu-text">Annual: "How is your result holding?" Recommend maintenance session in year 2–3.</div></div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 16 · Oncology Clients — Psychological Support</div>
+  <h4 class="topic-title">Oncology Clients — Psychological Support</h4>
   <div class="card">
     <p class="card-intro"><strong>30–40% of realistic areola clients are breast cancer survivors.</strong> For them, this is not a cosmetic procedure. It is the restoration of identity.</p>
     <ul class="fact-list">
@@ -1451,7 +1496,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 17 · Specialisation as a Business Strategy</div>
+  <h4 class="topic-title">Specialisation as a Business Strategy</h4>
   <div class="card">
     <div class="comparison-grid">
       <div class="comp-card basic">
@@ -1470,7 +1515,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 18 · Pricing &amp; Financial Model</div>
+  <h4 class="topic-title">Pricing &amp; Financial Model</h4>
   <div class="card">
     <div class="price-block">
       <div class="pb-head">PRIMARY AREOLA PROCEDURE</div>
@@ -1479,7 +1524,7 @@
         <div class="pr"><span class="pr-l">Your time:</span><span>2.5 hours (consult + procedure + documentation)</span></div>
         <div class="pr"><span class="pr-l">Overheads:</span><span>€100–150 (rental, insurance, utilities)</span></div>
         <div class="pr"><span class="pr-l">Profit margin:</span><span>€600–900</span></div>
-        <div class="pr"><span class="pr-l">Suggested price:</span><span><strong>€800–1,200</strong></span></div>
+        <div class="pr"><span class="pr-l">Suggested price:</span><span><strong style="color:var(--blb-accent);">€800–1,200</strong></span></div>
       </div>
     </div>
     <div class="price-block">
@@ -1502,7 +1547,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 19 · Marketing on a Minimal Budget</div>
+  <h4 class="topic-title">Marketing on a Minimal Budget</h4>
   <div class="card">
     <ul class="fact-list">
       <li><strong>Primary channel:</strong> Organic referrals + social media = 70% of clients</li>
@@ -1527,7 +1572,7 @@
 </div>
 
 <div class="card-wrap">
-<div class="topic-title"><div class="topic-dot"></div>TOPIC 20 · 3D Realistic Areola — Premium Technique</div>
+<h4 class="topic-title">3D Realistic Areola — Premium Technique</h4>
   <div class="card">
     <p class="card-intro"><strong>Concept:</strong> Using different colours and depths to create the optical illusion of volume — even on a flat post-surgical breast.</p>
 
@@ -1574,7 +1619,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 21 · Montgomery Glands — Realism Detail</div>
+  <h4 class="topic-title">Montgomery Glands — Realism Detail</h4>
   <div class="card">
     <p class="card-intro">The secret that makes clients say "it looks exactly like real":</p>
     <ul class="fact-list">
@@ -1600,34 +1645,28 @@
 </div>
 
 <div class="card-wrap">
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 22 · Scars &amp; Marks — Classification &amp; Approach</div>
+  <h4 class="topic-title">Scars &amp; Marks — Classification &amp; Approach</h4>
   <div class="card">
     <div class="scar-block">
       <div class="scar-type">NORMOTROPHIC (Flat, slightly depigmented)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90%</span></div>
-        <div class="sr"><span class="sr-label">Technique:</span><span>Colour fill, tone equalisation</span></div>
-        <div class="sr"><span class="sr-label">Time:</span><span>90 minutes</span></div>
-        <div class="sr"><span class="sr-label">Result:</span><span>Nearly invisible — best portfolio cases</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Efficacy:</span><span>80–90%</span></div>
+      <div class="sr"><span class="sr-label">Technique:</span><span>Colour fill, tone equalisation</span></div>
+      <div class="sr"><span class="sr-label">Time:</span><span>90 minutes</span></div>
+      <div class="sr"><span class="sr-label">Result:</span><span>Nearly invisible — best portfolio cases</span></div>
     </div>
     <div class="scar-block">
       <div class="scar-type">HYPERTROPHIC (Raised, reddish-brown)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75%</span></div>
-        <div class="sr"><span class="sr-label">Technique:</span><span>Optical illusion — dark edges, light centre</span></div>
-        <div class="sr"><span class="sr-label">Time:</span><span>120 minutes</span></div>
-        <div class="sr"><span class="sr-label">Result:</span><span>Visually softer, less prominent</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Efficacy:</span><span>60–75%</span></div>
+      <div class="sr"><span class="sr-label">Technique:</span><span>Optical illusion — dark edges, light centre</span></div>
+      <div class="sr"><span class="sr-label">Time:</span><span>120 minutes</span></div>
+      <div class="sr"><span class="sr-label">Result:</span><span>Visually softer, less prominent</span></div>
     </div>
     <div class="scar-block">
       <div class="scar-type">KELOID (Very raised, extends beyond wound margin)</div>
-      <div class="scar-body">
-        <div class="sr"><span class="sr-label">Efficacy:</span><span>40–50%</span></div>
-        <div class="sr"><span class="sr-label">Technique:</span><span>Recommend pre-treatment (laser or steroid injections)</span></div>
-        <div class="sr"><span class="sr-label">Time:</span><span>150+ minutes</span></div>
-        <div class="sr"><span class="sr-label">Result:</span><span>Physical removal requires a surgeon</span></div>
-      </div>
+      <div class="sr"><span class="sr-label">Efficacy:</span><span>40–50%</span></div>
+      <div class="sr"><span class="sr-label">Technique:</span><span>Recommend pre-treatment (laser or steroid injections)</span></div>
+      <div class="sr"><span class="sr-label">Time:</span><span>150+ minutes</span></div>
+      <div class="sr"><span class="sr-label">Result:</span><span>Physical removal requires a surgeon</span></div>
     </div>
     <div class="highlight-box">
       <div class="hl-title">The Golden Rule</div>
@@ -1635,7 +1674,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 23 · Stretch Marks — Specialist Technique</div>
+  <h4 class="topic-title">Stretch Marks — Specialist Technique</h4>
   <div class="card">
     <p class="card-intro">Stretch marks present as depigmented (light) or hyperpigmented (dark) linear changes.</p>
     <ul class="fact-list">
@@ -1645,7 +1684,7 @@
     </ul>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 24 · Vitiligo &amp; Dyschromia</div>
+  <h4 class="topic-title">Vitiligo &amp; Dyschromia</h4>
   <div class="card">
     <ul class="fact-list">
       <li><strong>Vitiligo (pigment loss, white patches):</strong> Fill depigmented area to match surrounding skin. Requires 3–6 sessions for accurate colour match. High complexity — the hardest colour matching challenge in PMU.</li>
@@ -1664,7 +1703,7 @@
 </div>
 
 <div class="card-wrap">
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 25 · Infection — Prevention &amp; Management</div>
+  <h4 class="topic-title">Infection — Prevention &amp; Management</h4>
   <div class="card">
     <p class="card-intro">Risk: 0.5–2% with excellent sanitation.
     5–10% with poor standards.</p>
@@ -1675,7 +1714,7 @@
     </ul>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 26 · Blue/Grey Shift (Tyndall Effect)</div>
+  <h4 class="topic-title">Blue/Grey Shift (Tyndall Effect)</h4>
   <div class="card">
     <ul class="fact-list">
       <li><strong>Cause:</strong> Over-deep pigment placement OR use of synthetic (non-iron-oxide) pigments</li>
@@ -1688,7 +1727,7 @@
     </div>
   </div>
 
-  <div class="topic-title"><div class="topic-dot"></div>TOPIC 27 · Legal Protection &amp; Insurance</div>
+  <h4 class="topic-title">Legal Protection &amp; Insurance</h4>
   <div class="card">
     <ul class="fact-list">
       <li><strong>Licensing:</strong> Verify regulatory requirements in your jurisdiction — requirements vary significantly across EU countries</li>
@@ -1724,7 +1763,7 @@
         <div class="phase-earn">Target earning: €30,000–50,000</div>
       </div>
     </div>
-
+    <hr class="text-divider">
     <div class="phase-block">
       <div class="phase-head">YEAR 2 — SPECIALISATION &amp; REPUTATION</div>
       <div class="phase-body">
@@ -1735,7 +1774,7 @@
         <div class="phase-earn">Target earning: €80,000–120,000</div>
       </div>
     </div>
-
+    <hr class="text-divider">
     <div class="phase-block">
       <div class="phase-head">YEAR 3 — PREMIUM POSITIONING</div>
       <div class="phase-body">
@@ -1776,7 +1815,7 @@
   </p>
 
   <div class="copyright">
-    © 2025 BLB Academy · BLB Brow &amp; Lash Buro · LENA LAB, LDA<br>
+    © 2026 BLB Academy · BLB Brow &amp; Lash Buro · LENA LAB, LDA<br>
     All rights reserved · Educational material for BLB course participants only
   </div>
 </div>
