@@ -178,7 +178,7 @@ def send_landing_lead(lead: LandingLead) -> dict[str, bool]:
         raise HTTPException(status_code=422, detail="A question is required")
     try:
         send_lead(
-            context="academy_question" if lead.type == "question" else "academy_place_claim",
+            context="Ask a question" if lead.type == "question" else "Claim a place",
             name=lead.name.strip(),
             phone=lead.phone.strip(),
             email=lead.email.strip(),
@@ -198,13 +198,13 @@ def send_lead(*, context: str, name: str, phone: str, email: str, message: str) 
 
     email_message = EmailMessage()
     email_message["To"] = ", ".join(settings.lead_recipients)
-    email_message["Subject"] = f"[BLB] New {context} request — {name}"
+    email_message["Subject"] = f"[BLB] {context} — {name}"
     email_message.set_content("\n".join([
         f"Context: {context}",
         f"Name: {name}",
         f"Email: {email}",
         f"Phone: {phone}",
-        f"Additional text: {message or '—'}",
+        f"Question, if any: {message or '—'}",
     ]))
     email_message["Reply-To"] = email
     _gmail_request(

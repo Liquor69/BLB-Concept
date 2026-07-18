@@ -1,3 +1,6 @@
+import base64
+from email import policy
+from email.parser import BytesParser
 from pathlib import Path
 
 import channels.gmail as gmail
@@ -33,3 +36,8 @@ def test_landing_question_sends_a_gmail_lead(monkeypatch, tmp_path: Path) -> Non
     assert response == {"accepted": True}
     assert sent[0][1] == "access-token"
     assert "raw" in sent[0][0]
+    message = BytesParser(policy=policy.default).parsebytes(
+        base64.urlsafe_b64decode(sent[0][0]["raw"])
+    )
+    assert message["Subject"] == "[BLB] Ask a question — Ada Lovelace"
+    assert "Question, if any: When is the next course?" in message.get_content()
