@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-gmail-lead-endpoint="/integrations/gmail/lead">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -894,6 +894,7 @@
     cursor: pointer;
   }
   .modal-submit:hover { background: var(--blb-rose); }
+  .modal-error { min-height: 18px; margin: 10px 0 0; color: #a41e1e; font-size: 12px; text-align: center; }
 
   /* ─── SUCCESS MODAL ──────────────────────────────────────── */
   .success-box { text-align: center; padding-top: 32px; }
@@ -1849,6 +1850,7 @@
         <textarea id="contactQuestion" name="question"></textarea>
       </div>
       <button type="submit" class="modal-submit" id="contactSubmitBtn">Claim</button>
+      <p class="modal-error" id="contactFormError" role="alert" aria-live="polite"></p>
     </form>
   </div>
 </div>
@@ -1876,6 +1878,8 @@
     var submitBtn = document.getElementById('contactSubmitBtn');
 
     overlay.dataset.type = type;
+    document.getElementById('contactFormError').textContent = '';
+    submitBtn.disabled = false;
 
     if (type === 'question') {
       title.textContent = 'Ask a question';
@@ -1900,11 +1904,37 @@
     document.getElementById('contactModalForm').reset();
   }
 
-  function submitContactModal(event) {
+  async function submitContactModal(event) {
     event.preventDefault();
     var type = document.getElementById('contactModalOverlay').dataset.type;
-    closeContactModal();
-    openSuccessModal(type);
+    var submitBtn = document.getElementById('contactSubmitBtn');
+    var error = document.getElementById('contactFormError');
+    var endpoint = document.documentElement.dataset.gmailLeadEndpoint;
+
+    error.textContent = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      var response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: type,
+          name: document.getElementById('contactName').value.trim(),
+          phone: document.getElementById('contactPhone').value.trim(),
+          email: document.getElementById('contactEmail').value.trim(),
+          message: type === 'question' ? document.getElementById('contactQuestion').value.trim() : ''
+        })
+      });
+      if (!response.ok) throw new Error('Lead delivery failed');
+      closeContactModal();
+      openSuccessModal(type);
+    } catch (exception) {
+      error.textContent = 'We could not send your details. Please try again.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = type === 'question' ? 'Ask' : 'Claim';
+    }
   }
 
   function openSuccessModal(type) {
