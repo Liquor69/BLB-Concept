@@ -14,3 +14,6 @@ https://<public-host>/integrations/gmail/connect?connect_token=<GMAIL_CONNECT_TO
 
 Authorize the shared sender account with `gmail.send`. Landing `question` and
 `claim` submissions are then delivered to `LEAD_RECIPIENTS_CSV`.
+
+Set `GMAIL_STATE_DB` to a Railway Volume path (for example,
+`/data/gmail-state.sqlite3`) so the connected account survives deployments.

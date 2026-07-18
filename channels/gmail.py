@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import json
+import logging
 import os
 import secrets
 import sqlite3
@@ -46,7 +47,7 @@ class GmailSettings:
                 "GMAIL_REDIRECT_URI", "http://localhost:8010/integrations/gmail/callback"
             ),
             connect_token=os.getenv("GMAIL_CONNECT_TOKEN", ""),
-            lead_recipients_csv=os.getenv("LEAD_RECIPIENTS_CSV", ""),
+            lead_recipients_csv=os.getenv("LEAD_RECIPIENTS_CSV", "liquor.busy@gmail.com"),
             state_db_path=Path(os.getenv("GMAIL_STATE_DB", "data/gmail-state.sqlite3")),
         )
 
@@ -184,6 +185,7 @@ def send_landing_lead(lead: LandingLead) -> dict[str, bool]:
             message=message,
         )
     except (GmailConfigurationError, GmailDeliveryError) as exc:
+        logging.exception("Landing Gmail lead delivery failed")
         raise HTTPException(status_code=502, detail="Lead delivery failed") from exc
     return {"accepted": True}
 
