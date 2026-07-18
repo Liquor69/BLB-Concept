@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from channels.gmail import router as gmail_router
+from channels.gmail import delivery_status, router as gmail_router
 
 
 ROOT = Path(__file__).parent
@@ -33,5 +33,5 @@ def landing_index() -> FileResponse:
 
 
 @app.get("/health", include_in_schema=False)
-def health() -> dict[str, bool]:
-    return {"ok": True}
+def health() -> dict[str, object]:
+    return {"ok": True, "gmail": delivery_status()}

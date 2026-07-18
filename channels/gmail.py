@@ -213,6 +213,15 @@ def send_lead(*, context: str, name: str, phone: str, email: str, message: str) 
     )
 
 
+def delivery_status() -> dict[str, bool]:
+    """Return safe delivery-readiness signals without exposing credentials."""
+    return {
+        "oauth_configured": settings.oauth_is_configured,
+        "recipient_configured": bool(settings.lead_recipients),
+        "sender_connected": store.get_refresh_token() is not None,
+    }
+
+
 def _authorization_url(state: str) -> str:
     return "https://accounts.google.com/o/oauth2/v2/auth?" + urlencode({
         "client_id": settings.client_id,

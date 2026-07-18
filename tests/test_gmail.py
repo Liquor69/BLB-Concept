@@ -41,3 +41,8 @@ def test_landing_question_sends_a_gmail_lead(monkeypatch, tmp_path: Path) -> Non
     )
     assert message["Subject"] == "[BLB] Ask a question — Ada Lovelace"
     assert "Question, if any: When is the next course?" in message.get_content()
+    assert gmail.delivery_status() == {
+        "oauth_configured": True,
+        "recipient_configured": True,
+        "sender_connected": True,
+    }
