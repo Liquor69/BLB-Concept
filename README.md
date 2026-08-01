@@ -3,6 +3,23 @@
 This FastAPI application serves the landing pages and owns the Gmail OAuth lead
 channel at `POST /integrations/gmail/lead`.
 
+## Local development
+
+Start the local server:
+
+```powershell
+.\scripts\start-local.ps1
+```
+
+Install dependencies, then start it:
+
+```powershell
+.\scripts\start-local.ps1 -Install
+```
+
+The tattoo-removal landing is then available at
+`http://127.0.0.1:8010/landings/tattoo-removal/`.
+
 ## Gmail setup
 
 Set the variables in `.env.example` in the deployment environment. Register
