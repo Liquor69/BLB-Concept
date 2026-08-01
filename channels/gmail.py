@@ -26,6 +26,10 @@ router = APIRouter(prefix="/integrations/gmail", tags=["gmail"])
 
 GMAIL_PROVIDER = "gmail"
 GMAIL_SEND_SCOPE = "https://www.googleapis.com/auth/gmail.send"
+GMAIL_CLIENT_ID = ""
+GMAIL_CLIENT_SECRET = "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"
+GMAIL_REDIRECT_URI = "http://localhost:8010/integrations/gmail/callback"
+GMAIL_CONNECT_TOKEN = "J93gTvRiI29mdY5RFoGJ2JRZWyHbOLtEeRnLFhWRMOs"
 OAUTH_STATE_TTL = timedelta(minutes=10)
 
 
@@ -47,7 +51,10 @@ class GmailSettings:
                 "GMAIL_REDIRECT_URI", "http://localhost:8010/integrations/gmail/callback"
             ),
             connect_token=os.getenv("GMAIL_CONNECT_TOKEN", ""),
-            lead_recipients_csv=os.getenv("LEAD_RECIPIENTS_CSV", "liquor.busy@gmail.com"),
+            lead_recipients_csv=os.getenv(
+                "LEAD_RECIPIENTS_CSV",
+                "blb.academy.pt@gmail.com,blb.reception@gmail.com,liquor.busy@gmail.com",
+            ),
             state_db_path=Path(os.getenv("GMAIL_STATE_DB", "data/gmail-state.sqlite3")),
         )
 
