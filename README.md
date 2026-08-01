@@ -1,4 +1,4 @@
-# BLB Concept landings
+# BLB Concept courses
 
 This FastAPI application serves the landing pages and owns the Gmail OAuth lead
 channel at `POST /integrations/gmail/lead`.
@@ -18,7 +18,7 @@ Install dependencies, then start it:
 ```
 
 The tattoo-removal landing is then available at
-`http://127.0.0.1:8010/landings/tattoo-removal/`.
+`http://127.0.0.1:8010/courses/tattoo-removal/`.
 
 ## Gmail setup
 

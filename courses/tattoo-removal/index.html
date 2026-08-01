@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-gmail-lead-endpoint="/integrations/gmail/lead" data-landing-name="Tattoo Removal Reality">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,8 +129,29 @@
     .footer-inner .brand { flex-shrink: 0; }
     .disclaimer { max-width: 590px; }
 
+    .fab-container { position: fixed; z-index: 20; right: max(24px, calc((100vw - 1140px) / 2)); bottom: 26px; display: flex; gap: 10px; }
+    .fab-btn { min-height: 46px; padding: 0 18px; border: 0; border-radius: 99px; cursor: pointer; font: 700 10px/1 Inter, sans-serif; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 12px 28px rgba(44,24,16,.26); }
+    .fab-btn.question { background: var(--paper); color: var(--dark); }
+    .fab-btn.claim { background: var(--gold); color: var(--dark); }
+    .modal-overlay { position: fixed; z-index: 30; inset: 0; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(44,24,16,.72); }
+    .modal-overlay.active { display: flex; }
+    .modal-box { width: min(100%, 430px); position: relative; border-radius: 14px; padding: 34px 28px 28px; background: var(--dark); color: white; box-shadow: 0 24px 70px rgba(0,0,0,.35); }
+    .modal-close { position: absolute; top: 13px; right: 16px; padding: 6px; border: 0; background: transparent; color: rgba(255,255,255,.65); font-size: 22px; line-height: 1; cursor: pointer; }
+    .modal-box h3 { margin: 0; font: 700 34px/1 'Cormorant Garamond', serif; }
+    .modal-sub { margin: 10px 0 23px; color: rgba(255,255,255,.7); font-size: 12px; line-height: 1.55; }
+    .modal-field { margin-bottom: 14px; }
+    .modal-field label { display: block; margin-bottom: 6px; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .modal-field input, .modal-field textarea { width: 100%; padding: 11px 13px; border: 1px solid rgba(252,226,137,.35); border-radius: 8px; background: rgba(255,255,255,.08); color: white; font: 13px/1.4 Inter, sans-serif; }
+    .modal-field textarea { min-height: 76px; resize: vertical; }
+    .modal-field input:focus, .modal-field textarea:focus { outline: none; border-color: var(--gold); }
+    .modal-field input:-webkit-autofill, .modal-field input:-webkit-autofill:hover, .modal-field input:-webkit-autofill:focus { -webkit-text-fill-color: white; box-shadow: 0 0 0 1000px var(--mocha) inset; transition: background-color 9999s ease-out; }
+    .modal-submit { width: 100%; min-height: 50px; margin-top: 8px; border: 0; border-radius: 8px; background: var(--gold); color: var(--dark); cursor: pointer; font: 700 11px/1 Inter, sans-serif; letter-spacing: 1.2px; text-transform: uppercase; }
+    .modal-submit:disabled { cursor: wait; opacity: .72; }
+    .modal-error { min-height: 18px; margin: 10px 0 0; color: #ffaaa0; font-size: 11px; line-height: 1.4; text-align: center; }
+    .success-message { margin: 13px 0 0; color: rgba(255,255,255,.75); font-size: 13px; line-height: 1.6; }
+
     @media (max-width: 760px) {
-      .container { width: min(100% - 36px, 570px); }.nav { height: 68px; }.nav-links { display: none; }.hero { min-height: auto; }.hero-inner, .split-heading, .feature-grid { grid-template-columns: 1fr; gap: 32px; }.hero-inner { padding: 48px 0 66px; }.hero-visual { height: 390px; }.hero-photo { inset: 20px 0 20px 6%; }.float-stat { left: 0; }.intro, .chapters, .feature, .pathway { padding: 64px 0; }.intro-text { padding-top: 0; }.stat-strip, .chapters-grid, .steps { grid-template-columns: 1fr; }.stat-strip > div { border-right: 0; border-bottom: 1px solid var(--line); }.stat-strip > div:last-child { border-bottom: 0; }.chapter-head, .cta-inner, .footer-inner { align-items: flex-start; flex-direction: column; }.chapter-head p { max-width: 500px; }.chapters-grid { gap: 12px; }.chapter { min-height: 250px; }.feature-grid { gap: 46px; }.reference-photo { max-width: 360px; justify-self: center; }.cta { padding: 58px 0; }.footer-inner { gap: 23px; }
+      .container { width: min(100% - 36px, 570px); }.nav { height: 68px; }.nav-links { display: none; }.hero { min-height: auto; }.hero-inner, .split-heading, .feature-grid { grid-template-columns: 1fr; gap: 32px; }.hero-inner { padding: 48px 0 66px; }.hero-visual { height: 390px; }.hero-photo { inset: 20px 0 20px 6%; }.float-stat { left: 0; }.intro, .chapters, .feature, .pathway { padding: 64px 0; }.intro-text { padding-top: 0; }.stat-strip, .chapters-grid, .steps { grid-template-columns: 1fr; }.stat-strip > div { border-right: 0; border-bottom: 1px solid var(--line); }.stat-strip > div:last-child { border-bottom: 0; }.chapter-head, .cta-inner, .footer-inner { align-items: flex-start; flex-direction: column; }.chapter-head p { max-width: 500px; }.chapters-grid { gap: 12px; }.chapter { min-height: 250px; }.feature-grid { gap: 46px; }.reference-photo { max-width: 360px; justify-self: center; }.cta { padding: 58px 0; }.footer-inner { gap: 23px; }.fab-container { right: 18px; bottom: 18px; left: 18px; justify-content: center; }.fab-btn { flex: 1; padding: 0 10px; }.modal-box { padding: 31px 22px 23px; }
     }
   </style>
 </head>
@@ -169,8 +190,129 @@
 
     <section class="pathway" id="pathway"><div class="container"><div class="path-intro"><div class="eyebrow" style="color:var(--terracotta)">The better pathway</div><h2 class="section-title">Work with biology, not <em>against it.</em></h2><p>When laser treatment reaches a limit, the next step is informed assessment—not assumptions. A combination approach is built around the person in front of you.</p></div><div class="steps"><article class="step"><div class="step-image"><img src="assets/smarter-path.jpg" alt="Smarter treatment pathway reference"></div><div class="step-body"><h3>Assess</h3><p>Map pigment, skin status and treatment history before proposing a pathway.</p></div></article><article class="step"><div class="step-image"><img src="assets/transformation.jpg" alt="Treatment transformation reference"></div><div class="step-body"><h3>Plan</h3><p>Choose a measured protocol with clear checkpoints and documented informed consent.</p></div></article><article class="step"><div class="step-image"><img src="assets/fibrosis.jpg" alt="Skin healing barrier reference"></div><div class="step-body"><h3>Review</h3><p>Evaluate the skin and the pigment response before deciding whether to continue or change course.</p></div></article></div></div></section>
 
-    <section class="cta" id="contact"><div class="container cta-inner"><div><div class="eyebrow">Continue learning</div><h2>Become the specialist people trust with complex cases.</h2><p>Explore safe chemical-remover protocols, resistant pigments, cover-ups, scars and permanent make-up.</p></div><a href="mailto:blb.academy.pt@gmail.com?subject=Tattoo%20Removal%20Course%20Enquiry" class="button primary">Enquire now</a></div></section>
+    <section class="cta" id="contact"><div class="container cta-inner"><div><div class="eyebrow">Continue learning</div><h2>Become the specialist people trust with complex cases.</h2><p>Explore safe chemical-remover protocols, resistant pigments, cover-ups, scars and permanent make-up.</p></div><button type="button" class="button primary" onclick="openContactModal('claim')">Claim my place</button></div></section>
   </main>
   <footer><div class="container footer-inner"><a href="#top" class="brand"><b>BLB</b><span>Academy</span></a><div class="disclaimer">Educational content only. It does not replace medical advice, diagnosis or treatment. Procedures should be carried out only by appropriately qualified practitioners, in accordance with applicable regulations.</div><div>© 2026 BLB Academy<br>Cascais, Portugal</div></div></footer>
+  <div class="fab-container" aria-label="Contact options">
+    <button type="button" class="fab-btn question" onclick="openContactModal('question')">Ask a question</button>
+    <button type="button" class="fab-btn claim" onclick="openContactModal('claim')">Claim my place</button>
+  </div>
+
+  <div class="modal-overlay" id="contactModalOverlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+      <h3 id="contactModalTitle">Claim my place</h3>
+      <p class="modal-sub" id="contactModalSub">Leave your details and the BLB Academy team will get back to you.</p>
+      <form id="contactModalForm" onsubmit="submitContactModal(event)">
+        <div class="modal-field"><label for="contactName">Name</label><input type="text" id="contactName" name="name" required></div>
+        <div class="modal-field"><label for="contactPhone">Phone number</label><input type="tel" id="contactPhone" name="phone" required></div>
+        <div class="modal-field"><label for="contactEmail">Email</label><input type="email" id="contactEmail" name="email" required></div>
+        <div class="modal-field" id="contactQuestionField" hidden><label for="contactQuestion">What is your question?</label><textarea id="contactQuestion" name="question"></textarea></div>
+        <button type="submit" class="modal-submit" id="contactSubmitBtn">Claim my place</button>
+        <p class="modal-error" id="contactFormError" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="successModalOverlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+      <button type="button" class="modal-close" onclick="closeSuccessModal()" aria-label="Close">&times;</button>
+      <h3 id="successModalTitle">Thank you</h3>
+      <p class="success-message" id="successMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    function openContactModal(type) {
+      var overlay = document.getElementById('contactModalOverlay');
+      var questionField = document.getElementById('contactQuestionField');
+      var question = document.getElementById('contactQuestion');
+      var title = document.getElementById('contactModalTitle');
+      var subtitle = document.getElementById('contactModalSub');
+      var submit = document.getElementById('contactSubmitBtn');
+
+      overlay.dataset.type = type;
+      document.getElementById('contactFormError').textContent = '';
+      if (type === 'question') {
+        title.textContent = 'Ask a question';
+        subtitle.textContent = 'Leave your details and question - we will reply as soon as possible.';
+        questionField.hidden = false;
+        question.required = true;
+        submit.textContent = 'Ask a question';
+      } else {
+        title.textContent = 'Claim my place';
+        subtitle.textContent = 'Leave your details and the BLB Academy team will get back to you.';
+        questionField.hidden = true;
+        question.required = false;
+        submit.textContent = 'Claim my place';
+      }
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeContactModal() {
+      var overlay = document.getElementById('contactModalOverlay');
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.getElementById('contactModalForm').reset();
+    }
+
+    async function submitContactModal(event) {
+      event.preventDefault();
+      var overlay = document.getElementById('contactModalOverlay');
+      var type = overlay.dataset.type;
+      var submit = document.getElementById('contactSubmitBtn');
+      var error = document.getElementById('contactFormError');
+      var endpoint = document.documentElement.dataset.gmailLeadEndpoint;
+      var landingName = document.documentElement.dataset.landingName;
+
+      error.textContent = '';
+      submit.disabled = true;
+      submit.textContent = 'Sending...';
+      try {
+        var response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: type,
+            name: document.getElementById('contactName').value.trim(),
+            phone: document.getElementById('contactPhone').value.trim(),
+            email: document.getElementById('contactEmail').value.trim(),
+            message: type === 'question' ? document.getElementById('contactQuestion').value.trim() : '',
+            source: landingName + ' | ' + window.location.href
+          })
+        });
+        if (!response.ok) throw new Error('Lead delivery failed');
+        closeContactModal();
+        openSuccessModal(type);
+      } catch (exception) {
+        error.textContent = 'We could not send your details. Please try again.';
+        submit.disabled = false;
+        submit.textContent = type === 'question' ? 'Ask a question' : 'Claim my place';
+      }
+    }
+
+    function openSuccessModal(type) {
+      var overlay = document.getElementById('successModalOverlay');
+      document.getElementById('successMessage').textContent = type === 'question'
+        ? 'Thank you. Our team will reply as soon as possible.'
+        : 'Thank you. Your request has been received and our team will contact you shortly.';
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeSuccessModal() {
+      var overlay = document.getElementById('successModalOverlay');
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('contactModalOverlay').addEventListener('click', function (event) {
+      if (event.target === this) closeContactModal();
+    });
+    document.getElementById('successModalOverlay').addEventListener('click', function (event) {
+      if (event.target === this) closeSuccessModal();
+    });
+  </script>
 </body>
 </html>

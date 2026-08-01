@@ -73,6 +73,7 @@ class LandingLead(BaseModel):
     phone: str = Field(min_length=1, max_length=64)
     email: str = Field(min_length=3, max_length=320)
     message: str = Field(default="", max_length=2_000)
+    source: str = Field(default="", max_length=500)
 
 
 class GmailConfigurationError(RuntimeError):
@@ -190,6 +191,7 @@ def send_landing_lead(lead: LandingLead) -> dict[str, bool]:
             phone=lead.phone.strip(),
             email=lead.email.strip(),
             message=message,
+            source=lead.source.strip(),
         )
     except (GmailConfigurationError, GmailDeliveryError) as exc:
         logging.exception("Landing Gmail lead delivery failed")
@@ -197,21 +199,30 @@ def send_landing_lead(lead: LandingLead) -> dict[str, bool]:
     return {"accepted": True}
 
 
-def send_lead(*, context: str, name: str, phone: str, email: str, message: str) -> None:
+def send_lead(
+    *, context: str, name: str, phone: str, email: str, message: str, source: str = ""
+) -> None:
     _require_delivery_configuration()
     refresh_token = store.get_refresh_token()
     if refresh_token is None:
         raise GmailDeliveryError("No Gmail account is connected")
 
+    landing_name, separator, landing_url = source.partition(" | ")
+    if not separator:
+        landing_url = source
+    landing_name = landing_name or "BLB landing"
+
     email_message = EmailMessage()
     email_message["To"] = ", ".join(settings.lead_recipients)
-    email_message["Subject"] = f"[BLB] {context} — {name}"
+    email_message["Subject"] = f"[BLB] New request about {landing_name} - {name}"
     email_message.set_content("\n".join([
-        f"Context: {context}",
+        f"New request about: {landing_name}",
+        f"Course page: {landing_url or 'Not supplied'}",
+        f"Request type: {context}",
         f"Name: {name}",
         f"Email: {email}",
         f"Phone: {phone}",
-        f"Question, if any: {message or '—'}",
+        f"Message: {message or 'Not supplied'}",
     ]))
     email_message["Reply-To"] = email
     _gmail_request(

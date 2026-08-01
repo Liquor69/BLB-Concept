@@ -31,6 +31,7 @@ def test_landing_question_sends_a_gmail_lead(monkeypatch, tmp_path: Path) -> Non
         phone="+351000000000",
         email="ada@example.test",
         message="When is the next course?",
+        source="Areola & Skin Defect Camouflage | https://example.test/courses/areola/",
     ))
 
     assert response == {"accepted": True}
@@ -39,8 +40,11 @@ def test_landing_question_sends_a_gmail_lead(monkeypatch, tmp_path: Path) -> Non
     message = BytesParser(policy=policy.default).parsebytes(
         base64.urlsafe_b64decode(sent[0][0]["raw"])
     )
-    assert message["Subject"] == "[BLB] Ask a question — Ada Lovelace"
-    assert "Question, if any: When is the next course?" in message.get_content()
+    assert message["Subject"] == "[BLB] New request about Areola & Skin Defect Camouflage - Ada Lovelace"
+    assert "New request about: Areola & Skin Defect Camouflage" in message.get_content()
+    assert "Course page: https://example.test/courses/areola/" in message.get_content()
+    assert "Request type: Ask a question" in message.get_content()
+    assert "Message: When is the next course?" in message.get_content()
     assert gmail.delivery_status() == {
         "oauth_configured": True,
         "recipient_configured": True,
