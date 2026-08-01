@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-gmail-lead-endpoint="/integrations/gmail/lead">
+<html lang="en" data-gmail-lead-endpoint="/integrations/gmail/lead" data-landing-name="Areola &amp; Skin Defect Camouflage">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1924,7 +1924,8 @@
           name: document.getElementById('contactName').value.trim(),
           phone: document.getElementById('contactPhone').value.trim(),
           email: document.getElementById('contactEmail').value.trim(),
-          message: type === 'question' ? document.getElementById('contactQuestion').value.trim() : ''
+          message: type === 'question' ? document.getElementById('contactQuestion').value.trim() : '',
+          source: document.documentElement.dataset.landingName + ' | ' + window.location.href
         })
       });
       if (!response.ok) throw new Error('Lead delivery failed');

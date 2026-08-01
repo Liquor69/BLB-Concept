@@ -16,7 +16,7 @@ allowed_origins = [
     item.strip() for item in os.getenv("LANDING_ALLOWED_ORIGINS", "*").split(",") if item.strip()
 ]
 
-app = FastAPI(title="BLB Concept Landings")
+app = FastAPI(title="BLB Concept Courses")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 app.include_router(gmail_router)
-app.mount("/landings", StaticFiles(directory=str(ROOT / "landings"), html=True), name="landings")
+app.mount("/courses", StaticFiles(directory=str(ROOT / "courses"), html=True), name="courses")
 
 
 @app.get("/", include_in_schema=False)
