@@ -80,8 +80,8 @@
     .chapters-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .chapter { background: var(--paper); border: 1px solid var(--line); min-height: 360px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
     .chapter:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .chapter-media { height: 156px; display: block; overflow: hidden; }
-    .chapter-media img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center top; filter: saturate(.82) contrast(.96); }
+    .chapter-media { aspect-ratio: 852 / 1280; display: block; overflow: hidden; }
+    .chapter-media img { width: 100%; height: 100%; display: block; object-fit: contain; filter: saturate(.82) contrast(.96); }
     .chapter-body { padding: 21px 25px 25px; }
     .chapter-num { color: var(--gold); font: 700 55px/.8 'Cormorant Garamond', serif; }
     .chapter h3 { margin: 14px 0 11px; font: 700 26px/1 'Cormorant Garamond', serif; text-transform: uppercase; }
@@ -114,8 +114,8 @@
     .path-intro p { margin: 18px auto 0; max-width: 550px; color: var(--soft); font-size: 14px; line-height: 1.7; }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .step { background: var(--paper); min-height: 260px; }
-    .step-image { display: block; height: 115px; overflow: hidden; }
-    .step-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.8); }
+    .step-image { display: block; aspect-ratio: 852 / 1280; overflow: hidden; }
+    .step-image img { display: block; width: 100%; height: 100%; object-fit: contain; filter: saturate(.8); }
     .step-body { padding: 21px 26px 26px; }
     .step h3 { margin: 0 0 9px; font: 700 22px/1 'Cormorant Garamond', serif; text-transform: uppercase; }
     .step p { margin: 0; color: var(--soft); font-size: 12px; line-height: 1.65; }
@@ -181,7 +181,7 @@
     <section class="intro" id="reality"><div class="container"><div class="split-heading"><div><div class="eyebrow" style="color:var(--terracotta)">The reality of treatment</div><h2 class="section-title">Results are <em>biological,</em> not automatic.</h2></div><div class="intro-text">Laser energy targets tattoo pigment, but a treatment outcome depends on far more than the device. <b>Ink composition, pigment depth, skin response and previous treatments</b> all influence how a tattoo changes over time. Strong consultations begin with this uncertainty made clear.</div></div><div class="stat-strip"><div><b>01</b><span>Not every pigment reacts predictably to every wavelength.</span></div><div><b>02</b><span>Fading is not necessarily full pigment clearance.</span></div><div><b>03</b><span>Skin healing can affect later treatment options.</span></div></div></div></section>
 
     <section class="chapters" id="factors"><div class="container"><div class="chapter-head"><div><div class="eyebrow" style="color:var(--terracotta)">What to assess</div><h2 class="section-title">Three factors behind a <em>more honest</em> consultation.</h2></div><p>Use these topics as the start of an evidence-led discussion—never as a guarantee of a result.</p></div><div class="chapters-grid">
-      <article class="chapter"><div class="chapter-media"><img src="assets/resistant-pigments.jpg" alt="Resistant pigment reference"></div><div class="chapter-body"><div class="chapter-num">01</div><h3>Resistant pigments</h3><p>White, flesh tones, yellows and some bright colours can respond differently because their chemistry is not uniform.</p><ul class="chapter-list"><li><b>White &amp; flesh tones:</b> often contain titanium dioxide.</li><li><b>Yellow:</b> may respond weakly to common laser wavelengths.</li><li><b>Light green &amp; turquoise:</b> can require highly specific wavelengths.</li><li><b>Red:</b> may behave unpredictably.</li></ul></div></article>
+      <article class="chapter"><div class="chapter-media"><img src="assets/resistant-pigments.jpg" alt="Resistant pigment reference"></div><div class="chapter-body"><div class="chapter-num">01</div><h3>Resistant pigments</h3><p>White, flesh tones, yellows and some bright colours can respond differently because their chemistry is not uniform.</p></div></article>
       <article class="chapter dark"><div class="chapter-media"><img src="assets/ghost-tattoos.jpg" alt="Ghost tattoo reference"></div><div class="chapter-body"><div class="chapter-num">02</div><h3>Ghost residue</h3><p>Fragmented pigment can persist as a faint shadow even when a tattoo appears substantially lighter in a before-and-after image.</p></div></article>
       <article class="chapter"><div class="chapter-media"><img src="assets/fibrosis.jpg" alt="Fibrosis and skin barrier reference"></div><div class="chapter-body"><div class="chapter-num">03</div><h3>Skin barriers</h3><p>Repeated injury and healing processes can change tissue around retained pigment, increasing the need for a conservative plan.</p></div></article>
     </div></div></section>
